@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>อุปกรณ์ดีๆ — เครื่องมือไฟฟ้าและอุปกรณ์โรงงานคุณภาพสูง</title>
+<meta name="description" content="อุปกรณ์ดีๆ จำหน่ายเครื่องมือไฟฟ้าโรงงาน ปลั๊กอุตสาหกรรม ข้อต่อสายไฟ และสายพ่วง คุณภาพมาตรฐาน มอก. ส่งทั่วประเทศ">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@0.460.0"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --or:#E84C0E;--gr:#1C1C1C;--ow:#F2EDE8;
+  --or-d:#C03A08;--gr-m:#3D3D3D;--gr-l:#6B6B6B;--bd:#D4CFC9;
+  --fh:'Barlow Condensed',sans-serif;
+  --fm:'IBM Plex Mono',monospace;
+  --fb:'IBM Plex Sans Thai','Sukhumvit Set',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--ow);color:var(--gr);line-height:1.8;word-break:break-word;overflow-wrap:break-word;overflow-x:hidden}
+h1,h2,h3,h4{font-family:var(--fh);letter-spacing:.02em;line-height:1.15;text-transform:uppercase}
+html[lang=th] h1,html[lang=th] h2,html[lang=th] h3{line-height:1.45;padding-top:6px}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 24px;transition:background .3s,padding .3s}
+.nav.sc{background:var(--gr);padding:12px 24px;box-shadow:0 2px 20px rgba(0,0,0,.35)}
+.nav__in{display:flex;align-items:center;justify-content:space-between;max-width:1380px;margin:0 auto}
+.nav__logo{font-family:var(--fh);font-weight:900;font-size:1.4rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ow);text-decoration:none;line-height:1}
+.nav__logo span{color:var(--or)}
+.nav__links{display:none;list-style:none;gap:28px;align-items:center}
+.nav__links a{font-family:var(--fm);font-size:.72rem;color:var(--ow);text-decoration:none;text-transform:uppercase;letter-spacing:.1em;opacity:.75;transition:opacity .2s,color .2s}
+.nav__links a:hover{opacity:1;color:var(--or)}
+.nav__r{display:flex;align-items:center;gap:16px}
+.lang-sw{display:flex;align-items:center;gap:5px;font-family:var(--fm);font-size:.78rem;color:var(--ow);background:none;border:1px solid rgba(242,237,232,.28);padding:5px 10px;border-radius:2px;transition:border-color .2s,color .2s;user-select:none;cursor:pointer;min-height:30px}
+.lang-sw:hover{border-color:var(--or);color:var(--or)}
+.nav__hbg{background:none;border:none;cursor:pointer;color:var(--ow);padding:4px;display:flex;align-items:center}
+.mob-menu{display:none;position:fixed;inset:0;background:var(--gr);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:36px}
+.mob-menu.open{display:flex}
+.mob-menu a{font-family:var(--fh);font-size:2.4rem;font-weight:800;text-transform:uppercase;color:var(--ow);text-decoration:none;letter-spacing:.04em;transition:color .2s;line-height:1.5}
+html[lang=th] .mob-menu a{font-family:var(--fb);font-size:1.8rem;font-weight:700;text-transform:none;letter-spacing:0}
+.mob-menu a:hover{color:var(--or)}
+.mob-close{position:absolute;top:20px;right:24px;background:none;border:none;cursor:pointer;color:var(--ow)}
+@media(min-width:768px){.nav__links{display:flex}.nav__hbg{display:none}}
+
+/* LEFT RAIL */
+.left-rail{display:none}
+@media(min-width:1100px){
+  .left-rail{display:flex;flex-direction:column;align-items:center;position:fixed;left:0;top:0;bottom:0;width:72px;background:var(--gr);z-index:100;padding:100px 0 40px;justify-content:space-between}
+  .lr-dots{display:flex;flex-direction:column;align-items:center;gap:24px}
+  .lr-dot{width:7px;height:7px;border-radius:50%;background:var(--gr-l);cursor:pointer;transition:background .2s,transform .2s;position:relative}
+  .lr-dot:hover,.lr-dot.active{background:var(--or);transform:scale(1.5)}
+  .lr-dot::after{content:attr(data-label);position:absolute;left:18px;top:50%;transform:translateY(-50%);font-family:var(--fm);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ow);white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s;background:var(--gr);padding:3px 8px;border-left:2px solid var(--or)}
+  .lr-dot:hover::after{opacity:1}
+  .lr-brand{writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--fm);font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gr-l)}
+  .main-c{margin-left:72px}
+}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;background:var(--gr);display:flex;align-items:flex-end;overflow:hidden;clip-path:polygon(0 0,100% 0,100% 94%,0 100%)}
+.hero__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.32;animation:hzoom 14s ease-in-out infinite alternate}
+@keyframes hzoom{from{transform:scale(1)}to{transform:scale(1.07)}}
+.hero__ov{position:absolute;inset:0;background:linear-gradient(140deg,rgba(232,76,14,.12) 0%,rgba(28,28,28,.65) 45%,rgba(28,28,28,.92) 100%)}
+.hero__acc{position:absolute;top:0;left:0;width:4px;height:100%;background:var(--or)}
+.hero__c{position:relative;z-index:2;padding:120px 24px 100px;max-width:880px}
+.hero__tag{font-family:var(--fm);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--or);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.hero__tag::before{content:'';display:block;width:28px;height:1px;background:var(--or)}
+.hero__h1{font-family:var(--fh);font-weight:900;font-size:clamp(2.8rem,9vw,6.5rem);line-height:1.0;text-transform:uppercase;color:var(--ow);margin-bottom:24px}
+html[lang=th] .hero__h1{line-height:1.3;padding-top:10px}
+.hero__h1 .ac{color:var(--or);display:block}
+.hero__desc{font-size:.98rem;line-height:1.85;color:rgba(242,237,232,.72);max-width:460px;margin-bottom:40px}
+.hero__btns{display:flex;flex-direction:column;gap:12px}
+.hero__stats{position:absolute;bottom:110px;right:32px;display:none;flex-direction:column;gap:22px}
+.h-stat__n{font-family:var(--fm);font-size:1.9rem;font-weight:600;color:var(--or);line-height:1}
+.h-stat__l{font-family:var(--fm);font-size:.58rem;text-transform:uppercase;letter-spacing:.12em;color:rgba(242,237,232,.45);margin-top:3px}
+.scroll-ind{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(242,237,232,.35)}
+.scroll-ind span{font-family:var(--fm);font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;writing-mode:vertical-rl;animation:spulse 2.2s ease-in-out infinite}
+@keyframes spulse{0%,100%{opacity:.25}50%{opacity:.75}}
+@media(min-width:768px){.hero__c{padding:140px 60px 110px}.hero__btns{flex-direction:row}.hero__stats{display:flex}}
+
+/* BUTTONS */
+.btn-p{display:inline-flex;align-items:center;gap:10px;background:var(--or);color:var(--ow);font-family:var(--fh);font-weight:700;font-size:1rem;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;padding:15px 30px;border:none;cursor:pointer;transition:background .25s,transform .2s;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));min-height:52px}
+.btn-p:hover{background:var(--or-d);transform:translateY(-2px)}
+.btn-o{display:inline-flex;align-items:center;gap:10px;background:transparent;color:var(--ow);font-family:var(--fh);font-weight:700;font-size:1rem;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;padding:14px 30px;border:1px solid rgba(242,237,232,.38);cursor:pointer;transition:border-color .25s,color .25s;min-height:52px}
+.btn-o:hover{border-color:var(--or);color:var(--or)}
+
+/* SECTION COMMONS */
+.sec{padding:80px 24px}
+.sec-in{max-width:1320px;margin:0 auto}
+.sec-label{font-family:var(--fm);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--or);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.sec-label::before{content:'';display:block;width:22px;height:1px;background:var(--or)}
+.sec-title{font-family:var(--fh);font-weight:900;font-size:clamp(1.9rem,4.5vw,3.2rem);text-transform:uppercase;color:var(--gr);line-height:1.1;margin-bottom:40px}
+html[lang=th] .sec-title{line-height:1.45;padding-top:6px}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .6s ease-out,transform .6s ease-out}
+.rv.vis{opacity:1;transform:translateY(0)}
+.rvl{opacity:0;transform:translateX(-36px);transition:opacity .6s ease-out,transform .6s ease-out}
+.rvl.vis{opacity:1;transform:translateX(0)}
+.rv:nth-child(2){transition-delay:.1s}
+.rv:nth-child(3){transition-delay:.2s}
+.rv:nth-child(4){transition-delay:.3s}
+.rv:nth-child(5){transition-delay:.4s}
+.rv:nth-child(6){transition-delay:.5s}
+
+/* ABOUT */
+.about{background:var(--gr);padding:80px 24px;position:relative;overflow:hidden}
+.about::before{content:'';position:absolute;top:0;left:0;right:0;height:60px;background:var(--ow);clip-path:polygon(0 0,100% 0,100% 30%,0 100%)}
+.about-grid{display:grid;grid-template-columns:1fr;gap:48px;max-width:1320px;margin:0 auto;padding-top:40px}
+.about-body{color:rgba(242,237,232,.72);font-size:.97rem;line-height:1.88;margin-bottom:28px}
+.about-img{width:100%;height:300px;object-fit:cover;clip-path:polygon(0 0,100% 0,100% 88%,0 100%)}
+.about-img-wrap{position:relative}
+.about-badge{position:absolute;bottom:-8px;right:16px;background:var(--or);color:var(--ow);font-family:var(--fh);font-weight:900;font-size:1rem;text-transform:uppercase;letter-spacing:.04em;padding:14px 22px;clip-path:polygon(6px 0,100% 0,100% calc(100% - 6px),calc(100% - 6px) 100%,0 100%,0 6px)}
+@media(min-width:768px){.about-grid{grid-template-columns:1fr 1fr;align-items:center}.about-img{height:420px}}
+
+/* CATEGORIES rail */
+.cats{padding:80px 0;background:var(--ow)}
+.cats-head{padding:0 24px;margin-bottom:36px;max-width:1320px;margin-left:auto;margin-right:auto}
+.cats-rail{display:flex;gap:2px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 24px 24px;scrollbar-width:thin;scrollbar-color:var(--or) var(--bd);-webkit-overflow-scrolling:touch}
+.cats-rail::-webkit-scrollbar{height:3px}
+.cats-rail::-webkit-scrollbar-track{background:var(--bd)}
+.cats-rail::-webkit-scrollbar-thumb{background:var(--or)}
+.cat-c{flex:0 0 270px;scroll-snap-align:start;position:relative;overflow:hidden;cursor:pointer;transition:transform .3s}
+.cat-c:hover{transform:scaleY(1.025)}
+.cat-c__img{width:100%;height:210px;object-fit:cover;opacity:.45;transition:opacity .4s,transform .4s;display:block}
+.cat-c:hover .cat-c__img{opacity:.65;transform:scale(1.06)}
+.cat-c__body{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;background:linear-gradient(to top,rgba(28,28,28,.88) 0%,transparent 60%)}
+.cat-c__n{font-family:var(--fm);font-size:.58rem;letter-spacing:.2em;color:var(--or);margin-bottom:6px}
+.cat-c__t{font-family:var(--fh);font-weight:800;font-size:1.35rem;text-transform:uppercase;color:var(--ow);line-height:1.15;margin-bottom:6px}
+html[lang=th] .cat-c__t{font-family:var(--fb);font-weight:700;font-size:1.05rem;text-transform:none;line-height:1.55}
+.cat-c__s{font-family:var(--fm);font-size:.6rem;color:rgba(242,237,232,.5);letter-spacing:.06em}
+.cat-c::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--or);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.cat-c:hover::after,.cat-c.feat::after{transform:scaleX(1)}
+@media(min-width:768px){.cat-c{flex:0 0 320px}.cat-c__img{height:270px}.cats-head{padding:0 60px}.cats-rail{padding:0 60px 32px}}
+
+/* PRODUCTS dense grid */
+.prods{background:var(--ow);padding:80px 24px;border-top:1px solid var(--bd)}
+.prods-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--bd);border:1px solid var(--bd);margin-top:48px}
+.pi{background:var(--ow);display:grid;grid-template-columns:88px 1fr;transition:background .25s}
+.pi:hover{background:#ede8e2}
+.pi__iw{overflow:hidden;position:relative}
+.pi__img{width:88px;height:88px;object-fit:cover;display:block;transition:transform .3s}
+.pi:hover .pi__img{transform:scale(1.09)}
+.pi__d{padding:12px 14px;display:flex;flex-direction:column;justify-content:space-between;border-left:1px solid var(--bd)}
+.pi__cat{font-family:var(--fm);font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--or)}
+.pi__name{font-family:var(--fh);font-weight:700;font-size:.97rem;text-transform:uppercase;color:var(--gr);line-height:1.2;margin:3px 0}
+html[lang=th] .pi__name{font-family:var(--fb);font-weight:700;font-size:.88rem;text-transform:none;line-height:1.6}
+.pi__spec{font-family:var(--fm);font-size:.57rem;color:var(--gr-l);letter-spacing:.05em}
+.pi__price{font-family:var(--fm);font-size:.9rem;font-weight:600;color:var(--or);margin-top:4px}
+@media(min-width:768px){.prods-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1100px){.prods-grid{grid-template-columns:repeat(3,1fr)}}
+
+/* WHY alternating */
+.why{background:var(--gr);padding:80px 24px}
+.why-items{display:grid;gap:64px;max-width:1320px;margin:0 auto}
+.wi{display:grid;grid-template-columns:1fr;gap:32px;align-items:center}
+.wi__n{font-family:var(--fm);font-size:3.5rem;font-weight:600;color:var(--or);opacity:.22;line-height:1;margin-bottom:-14px}
+.wi__tag{font-family:var(--fm);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--or);margin-bottom:8px}
+.wi__title{font-family:var(--fh);font-weight:800;font-size:clamp(1.55rem,3.2vw,2.3rem);text-transform:uppercase;color:var(--ow);line-height:1.15;margin-bottom:14px}
+html[lang=th] .wi__title{line-height:1.5;font-family:var(--fb);font-weight:700;font-size:clamp(1.2rem,2.8vw,1.8rem);text-transform:none}
+.wi__body{color:rgba(242,237,232,.68);font-size:.95rem;line-height:1.88}
+.wi__img{width:100%;height:250px;object-fit:cover;border:1px solid rgba(242,237,232,.07)}
+@media(min-width:768px){
+  .wi{grid-template-columns:1fr 1fr;gap:56px}
+  .wi:nth-child(even) .wi__txt{order:2}
+  .wi:nth-child(even) .wi__iw{order:1}
+  .wi__img{height:320px}
+}
+
+/* SPECS TABLE */
+.specs{padding:80px 24px;background:var(--ow);border-top:3px solid var(--or)}
+.specs-wrap{overflow-x:auto;margin-top:48px;border:1px solid var(--bd)}
+.specs-tbl{width:100%;min-width:640px;border-collapse:collapse;font-family:var(--fm);font-size:.78rem}
+.specs-tbl th{background:var(--gr);color:var(--ow);text-align:left;padding:13px 15px;letter-spacing:.1em;text-transform:uppercase;font-size:.62rem;white-space:nowrap}
+.specs-tbl th:first-child{color:var(--or)}
+.specs-tbl td{padding:13px 15px;border-bottom:1px solid var(--bd);color:var(--gr);vertical-align:middle}
+.specs-tbl tr:last-child td{border-bottom:none}
+.specs-tbl tr:hover td{background:rgba(232,76,14,.04)}
+.td-name{font-family:var(--fb);font-size:.85rem;font-weight:600}
+.sb{display:inline-block;padding:2px 7px;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase}
+.sb-or{background:var(--or);color:var(--ow)}
+.sb-bd{border:1px solid var(--bd);color:var(--gr-l)}
+.certs{display:flex;flex-wrap:wrap;gap:16px;margin-top:44px}
+.cert-item{display:flex;align-items:center;gap:10px;padding:14px 20px;border:1px solid var(--bd);background:white}
+.cert-item span{font-family:var(--fm);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase}
+
+/* CONTACT */
+.contact{background:var(--gr);padding:80px 24px;position:relative;overflow:hidden;clip-path:polygon(0 5%,100% 0,100% 100%,0 100%);margin-top:-48px;padding-top:128px}
+.contact-grid{display:grid;grid-template-columns:1fr;gap:56px;max-width:1320px;margin:0 auto}
+.ci{display:flex;align-items:flex-start;gap:16px;margin-bottom:28px}
+.ci__icon{width:40px;height:40px;background:rgba(232,76,14,.12);border:1px solid var(--or);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--or)}
+.ci__l{font-family:var(--fm);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--or);margin-bottom:3px}
+.ci__v{color:var(--ow);font-size:.95rem;line-height:1.75}
+.c-form{display:flex;flex-direction:column;gap:14px}
+.fg{display:flex;flex-direction:column;gap:5px}
+.fl{font-family:var(--fm);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(242,237,232,.45)}
+.fi{background:rgba(242,237,232,.06);border:1px solid rgba(242,237,232,.14);color:var(--ow);font-family:var(--fb);font-size:.95rem;padding:13px 15px;outline:none;transition:border-color .2s;width:100%;line-height:1.7}
+.fi:focus{border-color:var(--or)}
+.fi::placeholder{color:rgba(242,237,232,.22)}
+textarea.fi{min-height:96px;resize:vertical}
+@media(min-width:768px){.contact-grid{grid-template-columns:1fr 1.4fr}}
+
+/* FOOTER */
+footer{background:#0f0f0f;padding:30px 24px}
+.ft-in{max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:18px;align-items:center;text-align:center}
+.ft-logo{font-family:var(--fh);font-weight:900;font-size:1.25rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ow)}
+.ft-logo span{color:var(--or)}
+.ft-links{display:flex;gap:22px;flex-wrap:wrap;justify-content:center}
+.ft-links a{font-family:var(--fm);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(242,237,232,.35);text-decoration:none;transition:color .2s}
+.ft-links a:hover{color:var(--or)}
+.ft-copy{font-family:var(--fm);font-size:.6rem;letter-spacing:.1em;color:rgba(242,237,232,.25);text-transform:uppercase}
+@media(min-width:768px){.ft-in{flex-direction:row;justify-content:space-between;text-align:left}}
+@media(min-width:768px){.sec{padding:100px 60px}.about{padding:100px 60px}.prods{padding:100px 60px}.why{padding:100px 60px}.specs{padding:100px 60px}}
+</style>
+</head>
+<body>
+
+<!-- LEFT RAIL -->
+<nav class="left-rail" aria-label="Section nav">
+  <div class="lr-dots">
+    <div class="lr-dot active" data-section="hero" data-label="HOME"></div>
+    <div class="lr-dot" data-section="about" data-label="ABOUT"></div>
+    <div class="lr-dot" data-section="categories" data-label="CATEGORIES"></div>
+    <div class="lr-dot" data-section="products" data-label="PRODUCTS"></div>
+    <div class="lr-dot" data-section="why" data-label="WHY US"></div>
+    <div class="lr-dot" data-section="specs" data-label="SPECS"></div>
+    <div class="lr-dot" data-section="contact" data-label="CONTACT"></div>
+  </div>
+  <div class="lr-brand">Uppakorn Dee Dee © 2025</div>
+</nav>
+
+<!-- NAV -->
+<header class="nav" id="mainNav">
+  <div class="nav__in">
+    <a href="#hero" class="nav__logo">UDD<span>.</span></a>
+    <ul class="nav__links">
+      <li><a href="#about" data-lang-th="เกี่ยวกับเรา" data-lang-en="About">เกี่ยวกับเรา</a></li>
+      <li><a href="#categories" data-lang-th="หมวดสินค้า" data-lang-en="Categories">หมวดสินค้า</a></li>
+      <li><a href="#products" data-lang-th="สินค้า" data-lang-en="Products">สินค้า</a></li>
+      <li><a href="#why" data-lang-th="ทำไมต้องเรา" data-lang-en="Why Us">ทำไมต้องเรา</a></li>
+      <li><a href="#contact" data-lang-th="ติดต่อ" data-lang-en="Contact">ติดต่อ</a></li>
+    </ul>
+    <div class="nav__r">
+      <div class="lang-sw" role="button" tabindex="0" aria-label="Switch language">
+        <i data-lucide="globe" width="14" height="14"></i>
+        <span class="lang-sw__label">TH</span>
+      </div>
+      <button class="nav__hbg" id="hbgBtn" aria-label="Open menu">
+        <i data-lucide="menu" width="24" height="24"></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu" role="dialog" aria-modal="true">
+  <button class="mob-close" id="mobClose" aria-label="Close menu">
+    <i data-lucide="x" width="28" height="28"></i>
+  </button>
+  <a href="#about" data-lang-th="เกี่ยวกับเรา" data-lang-en="About">เกี่ยวกับเรา</a>
+  <a href="#categories" data-lang-th="หมวดสินค้า" data-lang-en="Categories">หมวดสินค้า</a>
+  <a href="#products" data-lang-th="สินค้า" data-lang-en="Products">สินค้า</a>
+  <a href="#why" data-lang-th="ทำไมต้องเรา" data-lang-en="Why Us">ทำไมต้องเรา</a>
+  <a href="#specs" data-lang-th="ข้อมูลจำเพาะ" data-lang-en="Specs">ข้อมูลจำเพาะ</a>
+  <a href="#contact" data-lang-th="ติดต่อ" data-lang-en="Contact">ติดต่อ</a>
+</div>
+
+<div class="main-c">
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero__acc"></div>
+  <img src="https://images.unsplash.com/photo-1716191300020-b52dec5b70a8?w=1600&h=900&fit=crop" alt="โรงงานไฟฟ้าอุตสาหกรรม" class="hero__bg" loading="eager">
+  <div class="hero__ov"></div>
+  <div class="hero__c">
+    <div class="hero__tag">
+      <span data-lang-th="เครื่องมือไฟฟ้าอุตสาหกรรม" data-lang-en="Industrial Electrical Equipment">เครื่องมือไฟฟ้าอุตสาหกรรม</span>
+    </div>
+    <h1 class="hero__h1">
+      <span data-lang-th="อุปกรณ์" data-lang-en="Tools That">อุปกรณ์</span>
+      <span class="ac" data-lang-th="ดีๆ" data-lang-en="Work Hard.">ดีๆ</span>
+      <span data-lang-th="สำหรับงานจริง" data-lang-en="Built to Last.">สำหรับงานจริง</span>
+    </h1>
+    <p class="hero__desc" data-lang-th="ผู้จัดจำหน่ายเครื่องมือไฟฟ้าโรงงาน ปลั๊กอุตสาหกรรม ข้อต่อสายไฟ และสายพ่วงคุณภาพสูง ผ่านมาตรฐาน มอก. รับประกันทุกชิ้น" data-lang-en="Trusted supplier of industrial electrical tools, factory plugs, cable connectors, and extension cords. TIS certified. Every product guaranteed.">ผู้จัดจำหน่ายเครื่องมือไฟฟ้าโรงงาน ปลั๊กอุตสาหกรรม ข้อต่อสายไฟ และสายพ่วงคุณภาพสูง ผ่านมาตรฐาน มอก. รับประกันทุกชิ้น</p>
+    <div class="hero__btns">
+      <a href="#products" class="btn-p">
+        <i data-lucide="package" width="18" height="18"></i>
+        <span data-lang-th="ดูสินค้าทั้งหมด" data-lang-en="Browse Products">ดูสินค้าทั้งหมด</span>
+      </a>
+      <a href="#contact" class="btn-o">
+        <i data-lucide="phone" width="18" height="18"></i>
+        <span data-lang-th="ติดต่อสั่งซื้อ" data-lang-en="Get a Quote">ติดต่อสั่งซื้อ</span>
+      </a>
+    </div>
+  </div>
+  <div class="hero__stats">
+    <div>
+      <div class="h-stat__n">500+</div>
+      <div class="h-stat__l" data-lang-th="รายการสินค้า" data-lang-en="Products">รายการสินค้า</div>
+    </div>
+    <div>
+      <div class="h-stat__n">20+</div>
+      <div class="h-stat__l" data-lang-th="ปีประสบการณ์" data-lang-en="Years Exp.">ปีประสบการณ์</div>
+    </div>
+    <div>
+      <div class="h-stat__n">1,200+</div>
+      <div class="h-stat__l" data-lang-th="ลูกค้าโรงงาน" data-lang-en="Factory Clients">ลูกค้าโรงงาน</div>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <i data-lucide="chevrons-down" width="16" height="16"></i>
+    <span>scroll</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="rvl">
+      <div class="sec-label" data-lang-th="เกี่ยวกับเรา" data-lang-en="About Us">เกี่ยวกับเรา</div>
+      <h2 class="sec-title" style="color:var(--ow)" data-lang-th="กว่า 20 ปีที่เราส่งมอบความเชื่อถือ" data-lang-en="20+ Years of Trusted Supply">กว่า 20 ปีที่เราส่งมอบความเชื่อถือ</h2>
+      <p class="about-body" data-lang-th="อุปกรณ์ดีๆ ก่อตั้งขึ้นด้วยปรัชญาเดียว: เครื่องมือที่ดีคือพื้นฐานของงานที่ดี เราเชี่ยวชาญด้านอุปกรณ์ไฟฟ้าอุตสาหกรรม ตั้งแต่ปลั๊กโรงงานมาตรฐาน IEC ไปจนถึงสายเคเบิลทนอุณหภูมิสูงสำหรับสายการผลิต" data-lang-en="Uppakorn Dee Dee was founded on a single principle: the right tool makes every job possible. We specialize in industrial electrical equipment — from IEC-standard factory plugs to high-temperature cables for production lines.">อุปกรณ์ดีๆ ก่อตั้งขึ้นด้วยปรัชญาเดียว: เครื่องมือที่ดีคือพื้นฐานของงานที่ดี เราเชี่ยวชาญด้านอุปกรณ์ไฟฟ้าอุตสาหกรรม ตั้งแต่ปลั๊กโรงงานมาตรฐาน IEC ไปจนถึงสายเคเบิลทนอุณหภูมิสูงสำหรับสายการผลิต</p>
+      <p class="about-body" data-lang-th="ทุกผลิตภัณฑ์ผ่านการคัดสรรตามมาตรฐาน มอก. และ IEC เรามีทีมผู้เชี่ยวชาญพร้อมให้คำปรึกษาด้านวิศวกรรม เพื่อให้คุณเลือกอุปกรณ์ได้ถูกต้องสำหรับทุกงาน" data-lang-en="Every product is selected and tested against TIS and IEC standards. Our engineering team offers free technical advice to ensure you choose the right specification for every application.">ทุกผลิตภัณฑ์ผ่านการคัดสรรตามมาตรฐาน มอก. และ IEC เรามีทีมผู้เชี่ยวชาญพร้อมให้คำปรึกษาด้านวิศวกรรม เพื่อให้คุณเลือกอุปกรณ์ได้ถูกต้องสำหรับทุกงาน</p>
+      <a href="#contact" class="btn-p" style="display:inline-flex;margin-top:8px">
+        <span data-lang-th="ปรึกษาผู้เชี่ยวชาญ" data-lang-en="Talk to an Expert">ปรึกษาผู้เชี่ยวชาญ</span>
+        <i data-lucide="arrow-right" width="18" height="18"></i>
+      </a>
+    </div>
+    <div class="about-img-wrap rv">
+      <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=700&h=520&fit=crop" alt="ช่างไฟฟ้าผู้เชี่ยวชาญ" class="about-img">
+      <div class="about-badge" data-lang-th="มาตรฐาน มอก." data-lang-en="TIS Certified">มาตรฐาน มอก.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="cats" id="categories">
+  <div class="cats-head">
+    <div class="sec-label" data-lang-th="หมวดหมู่สินค้า" data-lang-en="Product Categories">หมวดหมู่สินค้า</div>
+    <h2 class="sec-title" data-lang-th="ครบทุกความต้องการของโรงงาน" data-lang-en="Everything the Factory Needs">ครบทุกความต้องการของโรงงาน</h2>
+  </div>
+  <div class="cats-rail">
+    <div class="cat-c feat rv">
+      <img src="https://images.unsplash.com/photo-1565049981953-379c9c2a5d48?w=400&h=280&fit=crop" alt="ปลั๊กโรงงาน" class="cat-c__img">
+      <div class="cat-c__body">
+        <div class="cat-c__n">01 —</div>
+        <div class="cat-c__t" data-lang-th="ปลั๊กโรงงาน" data-lang-en="Factory Plugs">ปลั๊กโรงงาน</div>
+        <div class="cat-c__s">IEC 60309 · IP44 / IP67 · 16–63A</div>
+      </div>
+    </div>
+    <div class="cat-c rv">
+      <img src="https://images.unsplash.com/photo-1517373116369-9bdb8cdc9f62?w=400&h=280&fit=crop" alt="ข้อต่อสายไฟ" class="cat-c__img">
+      <div class="cat-c__body">
+        <div class="cat-c__n">02 —</div>
+        <div class="cat-c__t" data-lang-th="ข้อต่อสายไฟ" data-lang-en="Cable Connectors">ข้อต่อสายไฟ</div>
+        <div class="cat-c__s">Terminals · Ferrules · Butt Splices</div>
+      </div>
+    </div>
+    <div class="cat-c rv">
+      <img src="https://images.unsplash.com/photo-1650501386688-41f6d0251875?w=400&h=280&fit=crop" alt="สายพ่วง" class="cat-c__img">
+      <div class="cat-c__body">
+        <div class="cat-c__n">03 —</div>
+        <div class="cat-c__t" data-lang-th="สายพ่วง" data-lang-en="Extension Cords">สายพ่วง</div>
+        <div class="cat-c__s">Heavy Duty · 10A–32A · 3–25 m</div>
+      </div>
+    </div>
+    <div class="cat-c rv">
+      <img src="https://images.unsplash.com/photo-1758101755915-462eddc23f57?w=400&h=280&fit=crop" alt="เครื่องมือไฟฟ้า" class="cat-c__img">
+      <div class="cat-c__body">
+        <div class="cat-c__n">04 —</div>
+        <div class="cat-c__t" data-lang-th="เครื่องมือไฟฟ้า" data-lang-en="Electrical Tools">เครื่องมือไฟฟ้า</div>
+        <div class="cat-c__s">Testing · Crimping · Wiring</div>
+      </div>
+    </div>
+    <div class="cat-c rv">
+      <img src="https://images.unsplash.com/photo-1717386255773-1e3037c81788?w=400&h=280&fit=crop" alt="อุปกรณ์ควบคุมไฟฟ้า" class="cat-c__img">
+      <div class="cat-c__body">
+        <div class="cat-c__n">05 —</div>
+        <div class="cat-c__t" data-lang-th="อุปกรณ์ควบคุม" data-lang-en="Control Equipment">อุปกรณ์ควบคุม</div>
+        <div class="cat-c__s">Switches · Breakers · Enclosures</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="prods" id="products">
+  <div class="sec-in">
+    <div class="sec-label" data-lang-th="สินค้าแนะนำ" data-lang-en="Featured Products">สินค้าแนะนำ</div>
+    <h2 class="sec-title" data-lang-th="ขายดี — พร้อมส่งทันที" data-lang-en="Best Sellers — Ready to Ship">ขายดี — พร้อมส่งทันที</h2>
+    <div class="prods-grid">
+      <div class="pi rv">
+        <div class="pi__iw"><img src="https://images.unsplash.com/photo-1565049981953-379c9c2a5d48?w=176&h=176&fit=crop" alt="ปลั๊กตัวผู้ 3P+E 16A IP44" class="pi__img"></div>
+        <div class="pi__d">
+          <div>
+            <div class="pi__cat" data-lang-th="ปลั๊กโรงงาน" data-lang-en="Factory Plug">ปลั๊กโรงงาน</div>
+            <div class="pi__name" data-lang-th="ปลั๊กตัวผู้ 3P+E 16A IP44" data-lang-en="Male Plug 3P+E 16A IP44">ปลั๊กตัวผู้ 3P+E 16A IP44</div>
+            <div class="pi__spec">IEC 60309 · 380V · 3P+E</div>
+          </div>
+          <div class="pi__price">฿ 285</div>
+        </div>
+      </div>
+      <div class="pi rv">
+        <div class="pi__iw"><img src="https://images.unsplash.com/photo-1565049981953-379c9c2a5d48?w=176&h=176&fit=crop&crop=right" alt="เต้ารับติดผนัง 32A IP67" class="pi__img"></div>
+        <div class="pi__d">
+          <div>
+            <div class="pi__cat" data-lang-th="ปลั๊กโรงงาน" data-lang-en="Factory Plug">ปลั๊กโรงงาน</div>
+            <div class="pi__name" data-lang-th="เต้ารับติดผนัง 32A IP67" data-lang-en="Panel Socket 32A IP67">เต้ารับติดผนัง 32A IP67</div>
+            <div class="pi__spec">IEC 60309 · 380V · 3P+N+E</div>
+          </div>
+          <div class="pi__price">฿ 890</div>
+        </div>
+      </div>
+      <div class="pi rv">
+        <div class="pi__iw"><img src="https://images.unsplash.com/photo-1517373116369-9bdb8cdc9f62?w=176&h=176&fit=crop" alt="ข้อต่อสายแบบบีบอัด" class="pi__img"></div>
+        <div class="pi__d">
+          <div>
+            <div class="pi__cat" data-lang-th="ข้อต่อสายไฟ" data-lang-en="Cable Connector">ข้อต่อสายไฟ</div>
+            <div class="pi__name" data-lang-th="ข้อต่อแบบบีบอัด 6–16 มม.²" data-lang-en="Compression Lug 6–16mm²">ข้อต่อแบบบีบอัด 6–16 มม.²</div>
+            <div class="pi__spec">Cu/Al · 6–16mm² · UL Listed</div>
+          </div>
+          <div class="pi__price">฿ 45 / ชิ้น</div>
+        </div>
+      </div>
+      <div class="pi rv">
+        <div class="pi__iw"><img src="https://images.unsplash.com/photo-1650501386688-41f6d0251875?w=176&h=176&fit=crop" alt="สายพ่วงอุตสาหกรรม 10 ม." class="pi__img"></div>
+        <div class="pi__d">
+          <div>
+            <div class="pi__cat" data-lang-th="สายพ่วง" data-lang-en="Extension Cord">สายพ่วง</div>
+            <div class="pi__name" data-lang-th="สายพ่วงอุตสาหกรรม 16A / 10 ม." data-lang-en="Heavy Duty Reel 16A / 10m">สายพ่วงอุตสาหกรรม 16A / 10 ม.</div>
+            <div class="pi__spec">VCT 3×2.5mm² · 10m · มอก.11</div>
+          </div>
+          <div class="pi__price">฿ 1,450</div>
+        </div>
+      </div>
+      <div class="pi rv">
+        <div class="pi__iw"><img src="https://images.unsplash.com/photo-1650501386688-41f6d0251875?w=176&h=176&fit=crop&crop=left" alt="สายพ่วงม้วนแบบแกน 25 ม." class="pi__img"></div>
+        <div class="pi__d">
+          <div>
+            <div class="pi__cat" data-lang-th="สายพ่วง" data-lang-en="Extension Cord">สายพ่วง</div>
+            <div class="pi__name" data-lang-th="สายพ่วงม้วนแบบแกน 32A / 25 ม." data-lang-en="Drum Reel 32A / 25m">สายพ่วงม้วนแบบแกน 32A / 25 ม.</div>
+            <div class="pi__spec">VCT 3×4mm² · 25m · IP44</div>
+          </div>
+          <div class="pi__price">฿ 4,200</div>
+        </div>
+      </div>
+      <div class="pi rv">
+        <div class="pi__iw"><img src="https://images.unsplash.com/photo-1758101755915-462eddc23f57?w=176&h=176&fit=crop" alt="มัลติมิเตอร์ดิจิตอล" class="pi__img"></div>
+        <div class="pi__d">
+          <div>
+            <div class="pi__cat" data-lang-th="เครื่องมือไฟฟ้า" data-lang-en="Electrical Tool">เครื่องมือไฟฟ้า</div>
+            <div class="pi__name" data-lang-th="มัลติมิเตอร์ดิจิตอล CAT III 600V" data-lang-en="Digital Multimeter CAT III 600V">มัลติมิเตอร์ดิจิตอล CAT III 600V</div>
+            <div class="pi__spec">True RMS · CAT III 600V · Auto-range</div>
+          </div>
+          <div class="pi__price">฿ 2,190</div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:44px">
+      <a href="#contact" class="btn-p">
+        <i data-lucide="list" width="18" height="18"></i>
+        <span data-lang-th="ขอแคตตาล็อกเต็ม" data-lang-en="Request Full Catalog">ขอแคตตาล็อกเต็ม</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why" id="why">
+  <div class="sec-in" style="margin-bottom:40px">
+    <div class="sec-label" data-lang-th="ทำไมต้องเลือกอุปกรณ์ดีๆ" data-lang-en="Why Uppakorn Dee Dee">ทำไมต้องเลือกอุปกรณ์ดีๆ</div>
+    <h2 class="sec-title" style="color:var(--ow)" data-lang-th="มาตรฐาน ไม่ใช่แค่สัญญา" data-lang-en="Standards, Not Just Promises">มาตรฐาน ไม่ใช่แค่สัญญา</h2>
+  </div>
+  <div class="why-items">
+    <div class="wi rv">
+      <div class="wi__txt">
+        <div class="wi__n">01</div>
+        <div class="wi__tag" data-lang-th="มาตรฐานผลิตภัณฑ์" data-lang-en="Product Standards">มาตรฐานผลิตภัณฑ์</div>
+        <h3 class="wi__title" data-lang-th="รับรอง มอก. และ IEC ทุกชิ้น" data-lang-en="TIS & IEC Certified — Every Product">รับรอง มอก. และ IEC ทุกชิ้น</h3>
+        <p class="wi__body" data-lang-th="เราไม่จำหน่ายสินค้าที่ไม่ผ่านมาตรฐาน ทุกรายการมีเอกสารรับรองตรวจสอบได้ตลอดเวลา ความปลอดภัยของโรงงานคุณคือสิ่งที่เราให้ความสำคัญสูงสุด" data-lang-en="We don't stock non-certified products. Every item ships with traceable documentation. Your factory's safety is always our first priority.">เราไม่จำหน่ายสินค้าที่ไม่ผ่านมาตรฐาน ทุกรายการมีเอกสารรับรองตรวจสอบได้ตลอดเวลา ความปลอดภัยของโรงงานคุณคือสิ่งที่เราให้ความสำคัญสูงสุด</p>
+      </div>
+      <div class="wi__iw">
+        <img src="https://images.unsplash.com/photo-1717386255767-52643970d483?w=600&h=400&fit=crop" alt="มาตรฐานโรงงาน" class="wi__img">
+      </div>
+    </div>
+    <div class="wi rv">
+      <div class="wi__iw">
+        <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=600&h=400&fit=crop" alt="ทีมผู้เชี่ยวชาญ" class="wi__img">
+      </div>
+      <div class="wi__txt">
+        <div class="wi__n">02</div>
+        <div class="wi__tag" data-lang-th="บริการผู้เชี่ยวชาญ" data-lang-en="Expert Service">บริการผู้เชี่ยวชาญ</div>
+        <h3 class="wi__title" data-lang-th="ทีมวิศวกรพร้อมแนะนำตลอดเวลา" data-lang-en="Engineering Support Always Available">ทีมวิศวกรพร้อมแนะนำตลอดเวลา</h3>
+        <p class="wi__body" data-lang-th="ไม่แน่ใจว่าต้องการสายขนาดเท่าไร หรือปลั๊กรุ่นใดเหมาะกับเครื่องจักร เราพร้อมให้คำปรึกษาฟรีก่อนและหลังการซื้อ โดยไม่มีเงื่อนไข" data-lang-en="Unsure which cable size or plug model suits your machine? Free technical advice before and after purchase — no strings attached.">ไม่แน่ใจว่าต้องการสายขนาดเท่าไร หรือปลั๊กรุ่นใดเหมาะกับเครื่องจักร เราพร้อมให้คำปรึกษาฟรีก่อนและหลังการซื้อ โดยไม่มีเงื่อนไข</p>
+      </div>
+    </div>
+    <div class="wi rv">
+      <div class="wi__txt">
+        <div class="wi__n">03</div>
+        <div class="wi__tag" data-lang-th="สต็อกพร้อมส่ง" data-lang-en="Ready Stock">สต็อกพร้อมส่ง</div>
+        <h3 class="wi__title" data-lang-th="จัดส่งภายใน 24 ชั่วโมง ทั่วประเทศ" data-lang-en="24-Hour Nationwide Shipping">จัดส่งภายใน 24 ชั่วโมง ทั่วประเทศ</h3>
+        <p class="wi__body" data-lang-th="สต็อกสินค้ากว่า 500 รายการพร้อมส่งทุกวัน รับออเดอร์ก่อน 15:00 น. จัดส่งวันเดียวกัน ครอบคลุมทุกจังหวัดทั่วประเทศ" data-lang-en="Over 500 SKUs in stock daily. Order before 15:00 for same-day dispatch. Coverage across all provinces nationwide.">สต็อกสินค้ากว่า 500 รายการพร้อมส่งทุกวัน รับออเดอร์ก่อน 15:00 น. จัดส่งวันเดียวกัน ครอบคลุมทุกจังหวัดทั่วประเทศ</p>
+      </div>
+      <div class="wi__iw">
+        <img src="https://images.unsplash.com/photo-1716191300020-b52dec5b70a8?w=600&h=400&fit=crop&crop=right" alt="คลังสินค้าพร้อมส่ง" class="wi__img">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECS TABLE -->
+<section class="specs" id="specs">
+  <div class="sec-in">
+    <div class="sec-label" data-lang-th="ข้อมูลจำเพาะ" data-lang-en="Specifications">ข้อมูลจำเพาะ</div>
+    <h2 class="sec-title" data-lang-th="ตัวอย่างข้อมูลจำเพาะสินค้า" data-lang-en="Sample Product Specifications">ตัวอย่างข้อมูลจำเพาะสินค้า</h2>
+    <div class="specs-wrap rv">
+      <table class="specs-tbl">
+        <thead>
+          <tr>
+            <th data-lang-th="รหัสสินค้า" data-lang-en="SKU">รหัสสินค้า</th>
+            <th data-lang-th="ชื่อสินค้า" data-lang-en="Product">ชื่อสินค้า</th>
+            <th data-lang-th="กระแส" data-lang-en="Current">กระแส</th>
+            <th data-lang-th="แรงดัน" data-lang-en="Voltage">แรงดัน</th>
+            <th data-lang-th="ระดับป้องกัน" data-lang-en="IP Rating">ระดับป้องกัน</th>
+            <th data-lang-th="มาตรฐาน" data-lang-en="Standard">มาตรฐาน</th>
+            <th data-lang-th="ราคา" data-lang-en="Price">ราคา</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-family:var(--fm)">UDD-P16-3PE</td>
+            <td class="td-name" data-lang-th="ปลั๊กตัวผู้ 3P+E 16A" data-lang-en="Male Plug 3P+E 16A">ปลั๊กตัวผู้ 3P+E 16A</td>
+            <td style="font-family:var(--fm)">16A</td>
+            <td style="font-family:var(--fm)">380V</td>
+            <td><span class="sb sb-bd">IP44</span></td>
+            <td><span class="sb sb-or">IEC 60309</span></td>
+            <td style="font-family:var(--fm);color:var(--or);font-weight:600">฿285</td>
+          </tr>
+          <tr>
+            <td style="font-family:var(--fm)">UDD-P32-5PE</td>
+            <td class="td-name" data-lang-th="ปลั๊กตัวผู้ 3P+N+E 32A" data-lang-en="Male Plug 3P+N+E 32A">ปลั๊กตัวผู้ 3P+N+E 32A</td>
+            <td style="font-family:var(--fm)">32A</td>
+            <td style="font-family:var(--fm)">380V</td>
+            <td><span class="sb sb-or">IP67</span></td>
+            <td><span class="sb sb-or">IEC 60309</span></td>
+            <td style="font-family:var(--fm);color:var(--or);font-weight:600">฿680</td>
+          </tr>
+          <tr>
+            <td style="font-family:var(--fm)">UDD-S32-WM</td>
+            <td class="td-name" data-lang-th="เต้ารับติดผนัง 32A IP67" data-lang-en="Wall Socket 32A IP67">เต้ารับติดผนัง 32A IP67</td>
+            <td style="font-family:var(--fm)">32A</td>
+            <td style="font-family:var(--fm)">380V</td>
+            <td><span class="sb sb-or">IP67</span></td>
+            <td><span class="sb sb-or">มอก.</span></td>
+            <td style="font-family:var(--fm);color:var(--or);font-weight:600">฿890</td>
+          </tr>
+          <tr>
+            <td style="font-family:var(--fm)">UDD-CC-6T</td>
+            <td class="td-name" data-lang-th="ข้อต่อสายบีบอัด 6mm²" data-lang-en="Compression Lug 6mm²">ข้อต่อสายบีบอัด 6mm²</td>
+            <td style="font-family:var(--fm)">41A</td>
+            <td style="font-family:var(--fm)">600V</td>
+            <td><span class="sb sb-bd">—</span></td>
+            <td><span class="sb sb-bd">UL 486A</span></td>
+            <td style="font-family:var(--fm);color:var(--or);font-weight:600">฿45</td>
+          </tr>
+          <tr>
+            <td style="font-family:var(--fm)">UDD-EXT-10HD</td>
+            <td class="td-name" data-lang-th="สายพ่วงอุตสาหกรรม 10 ม." data-lang-en="Industrial Extension 10m">สายพ่วงอุตสาหกรรม 10 ม.</td>
+            <td style="font-family:var(--fm)">16A</td>
+            <td style="font-family:var(--fm)">220V</td>
+            <td><span class="sb sb-bd">IP44</span></td>
+            <td><span class="sb sb-or">มอก.11</span></td>
+            <td style="font-family:var(--fm);color:var(--or);font-weight:600">฿1,450</td>
+          </tr>
+          <tr>
+            <td style="font-family:var(--fm)">UDD-EXT-25DR</td>
+            <td class="td-name" data-lang-th="สายพ่วงม้วนแบบแกน 25 ม." data-lang-en="Drum Reel 25m">สายพ่วงม้วนแบบแกน 25 ม.</td>
+            <td style="font-family:var(--fm)">32A</td>
+            <td style="font-family:var(--fm)">380V</td>
+            <td><span class="sb sb-or">IP44</span></td>
+            <td><span class="sb sb-or">มอก.11</span></td>
+            <td style="font-family:var(--fm);color:var(--or);font-weight:600">฿4,200</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="certs">
+      <div class="cert-item rv"><i data-lucide="shield-check" width="18" height="18" style="color:var(--or)"></i><span>มอก. 11-2553</span></div>
+      <div class="cert-item rv"><i data-lucide="shield-check" width="18" height="18" style="color:var(--or)"></i><span>IEC 60309</span></div>
+      <div class="cert-item rv"><i data-lucide="shield-check" width="18" height="18" style="color:var(--or)"></i><span>UL 486A-B</span></div>
+      <div class="cert-item rv"><i data-lucide="shield-check" width="18" height="18" style="color:var(--or)"></i><span>RoHS Compliant</span></div>
+      <div class="cert-item rv"><i data-lucide="shield-check" width="18" height="18" style="color:var(--or)"></i><span>ISO 9001:2015</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-grid">
+    <div class="rvl">
+      <div class="sec-label" data-lang-th="ติดต่อเรา" data-lang-en="Contact Us">ติดต่อเรา</div>
+      <h2 class="sec-title" style="color:var(--ow);margin-bottom:36px" data-lang-th="พูดคุยกับทีมผู้เชี่ยวชาญ" data-lang-en="Talk to Our Team">พูดคุยกับทีมผู้เชี่ยวชาญ</h2>
+      <div class="ci">
+        <div class="ci__icon"><i data-lucide="phone" width="18" height="18"></i></div>
+        <div>
+          <div class="ci__l" data-lang-th="โทรศัพท์" data-lang-en="Phone">โทรศัพท์</div>
+          <div class="ci__v">02-XXX-XXXX<br>081-XXX-XXXX</div>
+        </div>
+      </div>
+      <div class="ci">
+        <div class="ci__icon"><i data-lucide="mail" width="18" height="18"></i></div>
+        <div>
+          <div class="ci__l" data-lang-th="อีเมล" data-lang-en="Email">อีเมล</div>
+          <div class="ci__v">sales@uppakorndeede.co.th</div>
+        </div>
+      </div>
+      <div class="ci">
+        <div class="ci__icon"><i data-lucide="map-pin" width="18" height="18"></i></div>
+        <div>
+          <div class="ci__l" data-lang-th="ที่ตั้ง" data-lang-en="Location">ที่ตั้ง</div>
+          <div class="ci__v" data-lang-th="นิคมอุตสาหกรรมอมตะนคร ชลบุรี 20000" data-lang-en="Amata City Industrial Estate, Chonburi 20000">นิคมอุตสาหกรรมอมตะนคร ชลบุรี 20000</div>
+        </div>
+      </div>
+      <div class="ci">
+        <div class="ci__icon"><i data-lucide="clock" width="18" height="18"></i></div>
+        <div>
+          <div class="ci__l" data-lang-th="เวลาทำการ" data-lang-en="Hours">เวลาทำการ</div>
+          <div class="ci__v" data-lang-th="จันทร์–ศุกร์ 08:00–17:30 น.<br>เสาร์ 08:00–12:00 น." data-lang-en="Mon–Fri 08:00–17:30<br>Sat 08:00–12:00">จันทร์–ศุกร์ 08:00–17:30 น.<br>เสาร์ 08:00–12:00 น.</div>
+        </div>
+      </div>
+    </div>
+    <div class="rv">
+      <form class="c-form" onsubmit="return false">
+        <div class="fg">
+          <label class="fl" data-lang-th="ชื่อ–นามสกุล" data-lang-en="Full Name">ชื่อ–นามสกุล</label>
+          <input type="text" class="fi" placeholder="วิศวกร สมชาย / John Smith">
+        </div>
+        <div class="fg">
+          <label class="fl" data-lang-th="บริษัท / โรงงาน" data-lang-en="Company / Factory">บริษัท / โรงงาน</label>
+          <input type="text" class="fi" placeholder="ABC Manufacturing Co., Ltd.">
+        </div>
+        <div class="fg">
+          <label class="fl" data-lang-th="เบอร์โทรหรืออีเมล" data-lang-en="Phone or Email">เบอร์โทรหรืออีเมล</label>
+          <input type="text" class="fi" placeholder="081-XXX-XXXX">
+        </div>
+        <div class="fg">
+          <label class="fl" data-lang-th="รายละเอียดความต้องการ" data-lang-en="Requirements">รายละเอียดความต้องการ</label>
+          <textarea class="fi" placeholder="ต้องการปลั๊กโรงงาน 3P+E 16A จำนวน 50 ชิ้น..."></textarea>
+        </div>
+        <button type="submit" class="btn-p" style="width:100%;justify-content:center">
+          <i data-lucide="send" width="18" height="18"></i>
+          <span data-lang-th="ส่งข้อความ" data-lang-en="Send Message">ส่งข้อความ</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+</div><!-- /main-c -->
+
+<footer>
+  <div class="ft-in">
+    <div class="ft-logo">UDD<span>.</span> Uppakorn Dee Dee</div>
+    <nav class="ft-links">
+      <a href="#about" data-lang-th="เกี่ยวกับเรา" data-lang-en="About">เกี่ยวกับเรา</a>
+      <a href="#products" data-lang-th="สินค้า" data-lang-en="Products">สินค้า</a>
+      <a href="#specs" data-lang-th="ข้อมูลจำเพาะ" data-lang-en="Specs">ข้อมูลจำเพาะ</a>
+      <a href="#contact" data-lang-th="ติดต่อ" data-lang-en="Contact">ติดต่อ</a>
+    </nav>
+    <div class="ft-copy" data-lang-th="© 2025 อุปกรณ์ดีๆ สงวนสิทธิ์ทุกประการ" data-lang-en="© 2025 Uppakorn Dee Dee. All rights reserved.">© 2025 อุปกรณ์ดีๆ สงวนสิทธิ์ทุกประการ</div>
+  </div>
+</footer>
+
+<script>lucide.createIcons();</script>
+
+<script>
+(function(){var K='site-lang',L=localStorage.getItem(K)||'th';function S(l){L=l;localStorage.setItem(K,l);document.documentElement.lang=l;document.querySelectorAll('[data-lang-th]').forEach(function(e){var t=e.getAttribute('data-lang-'+l);if(t!==null){if(/[<&]/.test(t)){e.innerHTML=t}else{e.textContent=t}}});var lb=document.querySelector('.lang-sw__label');if(lb){lb.textContent=l.toUpperCase()}}var sw=document.querySelector('.lang-sw');if(sw){sw.addEventListener('click',function(){S(L==='th'?'en':'th')});sw.style.cursor='pointer'}if(L!=='th'){S(L)}})();
+</script>
+
+<script>
+(function(){
+  var nav=document.getElementById('mainNav');
+  window.addEventListener('scroll',function(){nav.classList.toggle('sc',window.scrollY>60)},{passive:true});
+
+  var hbg=document.getElementById('hbgBtn'),mc=document.getElementById('mobClose'),mm=document.getElementById('mobMenu');
+  function openM(){mm.classList.add('open');document.body.style.overflow='hidden'}
+  function closeM(){mm.classList.remove('open');document.body.style.overflow=''}
+  hbg.addEventListener('click',openM);
+  mc.addEventListener('click',closeM);
+  mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeM)});
+
+  var io=new IntersectionObserver(function(ents){ents.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.rv,.rvl').forEach(function(el){io.observe(el)});
+
+  var secs=['hero','about','categories','products','why','specs','contact'];
+  var dots=document.querySelectorAll('.lr-dot');
+  var io2=new IntersectionObserver(function(ents){ents.forEach(function(e){if(e.isIntersecting){var id=e.target.id;dots.forEach(function(d){d.classList.toggle('active',d.dataset.section===id)})}})},{threshold:.3});
+  secs.forEach(function(id){var el=document.getElementById(id);if(el)io2.observe(el)});
+})();
+</script>
+</body>
+</html>
