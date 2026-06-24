@@ -1,1134 +1,902 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>อุปกรณ์ดีๆ — เครื่องมือไฟฟ้าโรงงาน คุณภาพมาตรฐาน</title>
-<meta name="description" content="อุปกรณ์ดีๆ จำหน่ายเครื่องมือไฟฟ้าโรงงาน ปลั๊กโรงงาน คอนเนคเตอร์สาย และสายพ่วงคุณภาพสูง มาตรฐาน มอก.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/lucide@0.460.0"></script>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-lang-th="ELECTRICA — อุปกรณ์ช่างไฟอุตสาหกรรม" data-lang-en="ELECTRICA — Industrial Electrician Equipment">ELECTRICA — อุปกรณ์ช่างไฟอุตสาหกรรม</title>
+  <meta name="description" content="Electrica จำหน่ายอุปกรณ์เครื่องมือช่างไฟโรงงาน ปลั๊กไฟอุตสาหกรรม อุปกรณ์เชื่อมสายไฟ และปลั๊กพ่วง คุณภาพระดับโรงงาน">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root{
-  --y:#FFD600;
-  --c:#4A4A4A;
-  --w:#FFFFFF;
-  --b:#1A1A1A;
-  --y2:#E6C000;
-  --rule:2px solid var(--b);
-  --rule-y:3px solid var(--y);
-  --font-disp:'Barlow Condensed',sans-serif;
-  --font-body:'IBM Plex Sans Thai','Sukhumvit Set',sans-serif;
-  --ease:cubic-bezier(.22,.61,.36,1);
-}
+    :root {
+      --blk: #0D0D0D;
+      --yel: #FFE600;
+      --wht: #FFFFFF;
+      --mono: 'IBM Plex Mono', monospace;
+      --cond: 'Barlow Condensed', sans-serif;
+      --thai: 'IBM Plex Sans Thai', 'Sukhumvit Set', sans-serif;
+    }
 
-html{scroll-behavior:smooth}
+    html { scroll-behavior: smooth; }
 
-body{
-  font-family:var(--font-body);
-  font-size:16px;
-  line-height:1.8;
-  color:var(--b);
-  background:var(--w);
-  word-break:break-word;
-  overflow-wrap:break-word;
-  overflow-x:hidden;
-}
+    body {
+      background: var(--blk);
+      color: var(--wht);
+      font-family: var(--thai);
+      font-size: 16px;
+      line-height: 1.8;
+      word-break: break-word;
+      overflow-wrap: break-word;
+      overflow-x: hidden;
+    }
 
-/* ─── TYPOGRAPHY ─── */
-h1,h2,h3,h4{
-  font-family:var(--font-disp);
-  font-weight:900;
-  line-height:1.1;
-  letter-spacing:0.02em;
-  text-transform:uppercase;
-}
-.th-text{line-height:1.5}
-p,li,label,input,textarea,select{font-family:var(--font-body);line-height:1.8}
+    img { display: block; width: 100%; height: auto; }
+    a { text-decoration: none; color: inherit; }
 
-/* ─── RULE LINES (schematic system) ─── */
-.rule-top{border-top:var(--rule)}
-.rule-bot{border-bottom:var(--rule)}
-.rule-y-top{border-top:var(--rule-y)}
-.rule-y-bot{border-bottom:var(--rule-y)}
-.ruled-box{border:var(--rule)}
-.ruled-box-y{border:2px solid var(--y)}
+    /* ── NAV ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: var(--blk);
+      border-bottom: 3px solid var(--yel);
+      transition: padding 0.3s;
+      padding: 0.9rem 1.5rem;
+    }
+    .nav.scrolled { padding: 0.5rem 1.5rem; border-bottom-width: 2px; }
+    .nav__inner {
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 1400px; margin: 0 auto;
+    }
+    .nav__logo {
+      font-family: var(--cond); font-weight: 900; font-size: 1.75rem;
+      letter-spacing: 0.12em; color: var(--yel); text-transform: uppercase;
+    }
+    .nav__actions { display: flex; align-items: center; gap: 0.75rem; }
+    .lang-sw {
+      display: flex; align-items: center; gap: 0.3rem;
+      font-family: var(--mono); font-size: 0.75rem; color: var(--wht);
+      padding: 0.4em 0.65em; border: 1px solid rgba(255,255,255,0.25);
+      background: transparent; transition: border-color 0.2s, color 0.2s;
+    }
+    .lang-sw:hover { border-color: var(--yel); color: var(--yel); }
+    .lang-sw svg { stroke: currentColor; flex-shrink: 0; }
+    .nav__burger {
+      display: flex; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer;
+      padding: 8px; min-width: 44px; min-height: 44px;
+      justify-content: center; align-items: center;
+    }
+    .nav__burger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--wht); transition: all 0.3s;
+    }
+    .nav__burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav__burger.open span:nth-child(2) { opacity: 0; }
+    .nav__burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav__drop {
+      display: none; flex-direction: column;
+      background: var(--blk); border-top: 1px solid rgba(255,230,0,0.25);
+      padding: 0.5rem 1.5rem 1rem;
+    }
+    .nav__drop.open { display: flex; }
+    .nav__lnk {
+      font-family: var(--mono); font-size: 0.8rem;
+      color: var(--wht); padding: 0.85rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      text-transform: uppercase; letter-spacing: 0.06em;
+      transition: color 0.2s;
+    }
+    html[lang="th"] .nav__lnk { letter-spacing: 0; }
+    .nav__lnk:last-child { border-bottom: none; }
+    .nav__lnk:hover { color: var(--yel); }
+    .nav__desk { display: none; gap: 2rem; align-items: center; }
+    .nav__desk .nav__lnk { border: none; padding: 0; font-size: 0.75rem; }
+    @media(min-width:768px){
+      .nav__desk { display: flex; }
+      .nav__burger { display: none; }
+      .nav__drop { display: none !important; }
+    }
 
-/* ─── NAVBAR ─── */
-.nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  background:var(--b);
-  border-bottom:3px solid var(--y);
-  transition:all .3s var(--ease);
-}
-.nav.scrolled{background:rgba(26,26,26,.97);backdrop-filter:blur(8px)}
-.nav__inner{
-  max-width:1280px;margin:0 auto;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 1.25rem;
-  height:60px;
-}
-.nav.scrolled .nav__inner{height:52px}
-.nav__logo{
-  font-family:var(--font-disp);font-weight:900;font-size:1.3rem;
-  color:var(--y);letter-spacing:.06em;text-transform:uppercase;
-  text-decoration:none;line-height:1;
-}
-.nav__logo span{color:var(--w);font-weight:400}
-.nav__links{display:none;gap:0.1rem;align-items:center}
-.nav__links a{
-  color:var(--w);text-decoration:none;font-family:var(--font-disp);
-  font-weight:600;font-size:0.85rem;letter-spacing:.08em;text-transform:uppercase;
-  padding:.5rem .75rem;border-bottom:2px solid transparent;
-  transition:all .2s;
-}
-.nav__links a:hover{color:var(--y);border-bottom-color:var(--y)}
-.nav__right{display:flex;align-items:center;gap:.75rem}
-.lang-sw{
-  display:flex;align-items:center;gap:.3rem;
-  color:var(--w);font-size:.78rem;font-family:var(--font-disp);
-  font-weight:600;letter-spacing:.08em;text-transform:uppercase;
-  padding:.35rem .5rem;border:1px solid rgba(255,255,255,.3);
-  transition:all .2s;
-}
-.lang-sw:hover{border-color:var(--y);color:var(--y)}
-.lang-sw svg{width:14px;height:14px;stroke:currentColor}
-.nav__cta{
-  background:var(--y);color:var(--b);
-  font-family:var(--font-disp);font-weight:700;font-size:.85rem;
-  letter-spacing:.06em;text-transform:uppercase;
-  padding:.45rem 1.1rem;text-decoration:none;
-  border:2px solid var(--y);
-  transition:all .2s;
-}
-.nav__cta:hover{background:transparent;color:var(--y)}
-.hamburger{
-  display:flex;flex-direction:column;justify-content:center;gap:5px;
-  background:none;border:none;cursor:pointer;padding:.5rem;
-  width:44px;height:44px;
-}
-.hamburger span{
-  display:block;height:2px;background:var(--w);
-  transition:all .3s var(--ease);
-  transform-origin:center;
-}
-.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
-.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.mobile-menu{
-  display:none;background:var(--b);border-top:2px solid var(--y);
-  flex-direction:column;padding:.75rem 1.25rem 1rem;
-}
-.mobile-menu.open{display:flex}
-.mobile-menu a{
-  color:var(--w);text-decoration:none;font-family:var(--font-disp);
-  font-weight:600;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;
-  padding:.65rem 0;border-bottom:1px solid rgba(255,255,255,.1);
-  transition:color .2s;
-}
-.mobile-menu a:hover{color:var(--y)}
+    /* ── HAZARD TAPE ── */
+    .tape {
+      height: 10px;
+      background: repeating-linear-gradient(
+        -45deg, var(--yel) 0, var(--yel) 12px,
+        var(--blk) 12px, var(--blk) 24px
+      );
+    }
 
-/* ─── HERO ─── */
-.hero{
-  padding-top:60px;
-  background:var(--b);
-  min-height:100svh;
-  position:relative;
-  overflow:hidden;
-  display:grid;
-  grid-template-rows:auto;
-}
-.hero__bg{
-  position:absolute;inset:0;
-  background-image:url('https://images.unsplash.com/photo-1730584474338-aa8d9d186bf7?w=1600&h=900&fit=crop');
-  background-size:cover;background-position:center;
-  opacity:.25;
-  transform:scale(1.05);
-  animation:heroZoom 12s ease-out forwards;
-}
-@keyframes heroZoom{to{transform:scale(1)}}
+    /* ── HERO ── */
+    .hero {
+      background: var(--blk); position: relative;
+      overflow: hidden; padding-top: 70px; min-height: 100svh;
+      display: flex; flex-direction: column;
+    }
+    .hero__img-mob {
+      width: 100%; height: 280px; overflow: hidden; position: relative;
+      clip-path: polygon(0 0, 100% 0, 100% 88%, 90% 100%, 0 100%);
+    }
+    .hero__img-mob img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: brightness(0.65) contrast(1.15);
+      animation: hzoom 10s ease infinite alternate;
+    }
+    @keyframes hzoom {
+      from { transform: scale(1); }
+      to   { transform: scale(1.06); }
+    }
+    .hero__copy {
+      padding: 2.5rem 1.5rem 3.5rem; position: relative; z-index: 2; flex: 1;
+    }
+    .hero__over-num {
+      font-family: var(--cond); font-weight: 900;
+      font-size: clamp(7rem,28vw,18rem); line-height: 0.82;
+      color: var(--yel); opacity: 0.06; letter-spacing: -0.04em;
+      position: absolute; top: 0; right: -0.1em; pointer-events: none;
+      user-select: none;
+    }
+    .hero__eyebrow {
+      font-family: var(--mono); font-size: 0.72rem;
+      letter-spacing: 0.22em; color: var(--yel); text-transform: uppercase;
+      display: flex; align-items: center; gap: 0.75rem;
+      margin-bottom: 1.25rem;
+      animation: sfade 0.6s ease-out 0.3s both;
+    }
+    .hero__eyebrow::before {
+      content: ''; display: block; width: 28px; height: 2px; background: var(--yel);
+    }
+    .hero__h1 {
+      font-family: var(--cond); font-weight: 900;
+      font-size: clamp(2.8rem,9vw,6.5rem); line-height: 1.0;
+      text-transform: uppercase; letter-spacing: -0.02em;
+      margin-bottom: 1.5rem; color: var(--wht);
+      animation: sfade 0.6s ease-out 0.5s both;
+    }
+    html[lang="th"] .hero__h1 { letter-spacing: 0; line-height: 1.35; }
+    html[lang="th"] .hero__eyebrow { letter-spacing: 0.05em; }
+    .hero__sub {
+      font-size: 1rem; line-height: 1.8; color: rgba(255,255,255,0.6);
+      max-width: 500px; margin-bottom: 2.5rem;
+      animation: sfade 0.6s ease-out 0.65s both;
+    }
+    .btn-prim {
+      display: inline-flex; align-items: center; gap: 0.65rem;
+      background: var(--yel); color: var(--blk);
+      font-family: var(--cond); font-weight: 700;
+      font-size: 1.05rem; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.9rem 1.8rem; border: none; cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      clip-path: polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
+      animation: sfade 0.6s ease-out 0.8s both;
+      min-height: 48px;
+    }
+    html[lang="th"] .btn-prim { letter-spacing: 0; }
+    .btn-prim:hover { background: var(--wht); transform: translateY(-2px); }
+    @keyframes sfade {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: none; }
+    }
+    @media(min-width:768px){
+      .hero {
+        flex-direction: row; align-items: stretch; min-height: 100svh;
+        padding-top: 72px;
+      }
+      .hero::before {
+        content: ''; position: absolute; top: 0; right: 0; bottom: 0; width: 50%;
+        background: var(--yel);
+        clip-path: polygon(18% 0,100% 0,100% 100%,0 100%);
+        z-index: 0;
+      }
+      .hero__img-mob { display: none; }
+      .hero__copy {
+        flex: 0 0 55%; padding: 5rem 3rem 4rem 2rem;
+        display: flex; flex-direction: column; justify-content: center;
+        max-width: 800px; margin: 0 auto 0 calc(50vw - 700px);
+      }
+      .hero__img-desk {
+        flex: 0 0 45%; position: relative; z-index: 1; overflow: hidden;
+      }
+      .hero__img-desk img {
+        width: 100%; height: 100%; object-fit: cover;
+        mix-blend-mode: multiply; opacity: 0.85;
+        filter: contrast(1.1);
+        animation: hzoom 10s ease infinite alternate;
+      }
+    }
+    .hero__img-desk { display: none; }
+    @media(min-width:768px){ .hero__img-desk { display: block; } }
 
-/* Schematic rule overlay */
-.hero__rules{
-  position:absolute;inset:0;pointer-events:none;
-}
-.hero__rules::before{
-  content:'';position:absolute;
-  top:0;left:0;right:0;height:3px;background:var(--y);
-}
-.hero__rules::after{
-  content:'';position:absolute;
-  top:60px;left:0;right:0;height:1px;background:rgba(255,214,0,.3);
-}
-/* Vertical rule line */
-.hero__vline{
-  position:absolute;top:60px;bottom:0;left:50%;
-  width:1px;background:rgba(255,214,0,.15);
-  display:none;
-}
-.hero__content{
-  position:relative;z-index:2;
-  max-width:1280px;margin:0 auto;width:100%;
-  padding:3rem 1.25rem 4rem;
-  display:flex;flex-direction:column;gap:0;
-}
-.hero__tag{
-  display:inline-flex;align-items:center;gap:.5rem;
-  background:var(--y);color:var(--b);
-  font-family:var(--font-disp);font-weight:700;font-size:.8rem;
-  letter-spacing:.12em;text-transform:uppercase;
-  padding:.35rem .85rem;
-  width:fit-content;
-  margin-bottom:1.5rem;
-}
-.hero__h1{
-  font-size:clamp(3rem,12vw,9rem);
-  color:var(--w);
-  line-height:.95;
-  margin-bottom:.5rem;
-}
-.hero__h1 em{
-  color:var(--y);font-style:normal;
-  display:block;
-}
-.hero__sub{
-  font-family:var(--font-body);
-  color:rgba(255,255,255,.75);
-  font-size:1rem;line-height:1.8;
-  max-width:460px;
-  border-left:3px solid var(--y);
-  padding-left:1rem;
-  margin:1.5rem 0 2rem;
-}
-.hero__actions{display:flex;flex-wrap:wrap;gap:.75rem}
-.btn-primary{
-  background:var(--y);color:var(--b);
-  font-family:var(--font-disp);font-weight:700;font-size:1rem;
-  letter-spacing:.06em;text-transform:uppercase;
-  padding:.8rem 2rem;text-decoration:none;
-  border:2px solid var(--y);display:inline-flex;align-items:center;gap:.5rem;
-  transition:all .25s var(--ease);min-height:44px;
-}
-.btn-primary:hover{background:transparent;color:var(--y)}
-.btn-outline{
-  background:transparent;color:var(--w);
-  font-family:var(--font-disp);font-weight:700;font-size:1rem;
-  letter-spacing:.06em;text-transform:uppercase;
-  padding:.8rem 2rem;text-decoration:none;
-  border:2px solid rgba(255,255,255,.5);display:inline-flex;align-items:center;gap:.5rem;
-  transition:all .25s var(--ease);min-height:44px;
-}
-.btn-outline:hover{border-color:var(--y);color:var(--y)}
+    /* ── SECTION COMMON ── */
+    .sec { padding: 4.5rem 1.5rem; position: relative; overflow: hidden; }
+    .sec__inner { max-width: 1400px; margin: 0 auto; }
+    .sec__eye {
+      font-family: var(--mono); font-size: 0.72rem;
+      letter-spacing: 0.22em; color: var(--yel); text-transform: uppercase;
+      display: flex; align-items: center; gap: 0.65rem; margin-bottom: 1rem;
+    }
+    html[lang="th"] .sec__eye { letter-spacing: 0.05em; }
+    .sec__eye::before {
+      content: ''; display: block; width: 18px; height: 2px; background: var(--yel);
+    }
+    .sec__h {
+      font-family: var(--cond); font-weight: 900;
+      font-size: clamp(2rem,6vw,4.5rem); line-height: 1.0;
+      text-transform: uppercase; letter-spacing: -0.02em;
+    }
+    html[lang="th"] .sec__h { letter-spacing: 0; line-height: 1.35; }
+    .sec__bg-num {
+      font-family: var(--cond); font-weight: 900;
+      font-size: clamp(8rem,20vw,16rem); line-height: 0.8;
+      color: var(--yel); opacity: 0.06; letter-spacing: -0.04em;
+      position: absolute; pointer-events: none; user-select: none;
+      right: 1rem; top: 1rem;
+    }
 
-/* Hero stat strip */
-.hero__stats{
-  display:grid;grid-template-columns:repeat(2,1fr);
-  gap:0;margin-top:3rem;
-  border-top:2px solid rgba(255,214,0,.4);
-}
-.hero__stat{
-  padding:1.25rem 1rem;
-  border-right:1px solid rgba(255,214,0,.2);
-  border-bottom:1px solid rgba(255,214,0,.2);
-}
-.hero__stat:nth-child(even){border-right:none}
-.hero__stat-num{
-  font-family:var(--font-disp);font-weight:900;font-size:2.2rem;
-  color:var(--y);line-height:1;display:block;
-}
-.hero__stat-label{
-  font-family:var(--font-body);color:rgba(255,255,255,.6);
-  font-size:.82rem;line-height:1.5;display:block;margin-top:.2rem;
-}
+    /* ── PRODUCTS ── */
+    .products { background: var(--blk); padding: 0; }
+    .products__hd { padding: 4rem 1.5rem 2.5rem; max-width: 1400px; margin: 0 auto; }
 
-/* ─── SECTION WRAPPER ─── */
-.section{padding:5rem 1.25rem}
-.section--dark{background:var(--b);color:var(--w)}
-.section--yellow{background:var(--y);color:var(--b)}
-.section--gray{background:#F4F3EF;color:var(--b)}
-.container{max-width:1280px;margin:0 auto;width:100%}
+    .pb { /* product band */
+      border-top: 2px solid rgba(255,230,0,0.18);
+      display: flex; flex-direction: column;
+      transition: border-color 0.3s;
+    }
+    .pb:last-child { border-bottom: 2px solid rgba(255,230,0,0.18); }
+    .pb:hover { border-top-color: var(--yel); }
+    .pb__img {
+      overflow: hidden; height: 260px; flex-shrink: 0;
+      clip-path: polygon(0 0,100% 0,100% 90%,94% 100%,0 100%);
+    }
+    .pb.rev .pb__img { clip-path: polygon(0 0,100% 0,100% 100%,6% 100%,0 90%); }
+    .pb__img img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: grayscale(25%) contrast(1.1);
+      transition: transform 0.7s ease, filter 0.4s;
+    }
+    .pb:hover .pb__img img { transform: scale(1.04); filter: grayscale(0%) contrast(1.1); }
+    .pb__body { padding: 2rem 1.5rem; position: relative; }
+    .pb__num {
+      font-family: var(--cond); font-weight: 900;
+      font-size: clamp(5rem,15vw,9rem); line-height: 0.8;
+      color: var(--yel); opacity: 0.12; letter-spacing: -0.04em;
+      position: absolute; top: 0.5rem; right: 1rem; pointer-events: none;
+    }
+    .pb__tag {
+      font-family: var(--mono); font-size: 0.68rem;
+      letter-spacing: 0.15em; color: var(--yel); text-transform: uppercase;
+      margin-bottom: 0.65rem;
+    }
+    html[lang="th"] .pb__tag { letter-spacing: 0.04em; }
+    .pb__name {
+      font-family: var(--cond); font-weight: 900;
+      font-size: clamp(1.5rem,5vw,2.6rem); line-height: 1.05;
+      text-transform: uppercase; letter-spacing: -0.01em; margin-bottom: 1rem;
+    }
+    html[lang="th"] .pb__name { letter-spacing: 0; line-height: 1.4; }
+    .pb__desc {
+      font-size: 0.95rem; line-height: 1.8;
+      color: rgba(255,255,255,0.6); max-width: 540px; margin-bottom: 1.5rem;
+    }
+    .pb__specs { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+    .stag {
+      font-family: var(--mono); font-size: 0.68rem;
+      padding: 0.45em 0.8em; letter-spacing: 0.05em;
+      border: 1px solid rgba(255,230,0,0.4); color: rgba(255,230,0,0.85);
+      text-transform: uppercase;
+    }
+    html[lang="th"] .stag { letter-spacing: 0; }
+    @media(min-width:768px){
+      .pb { flex-direction: row; }
+      .pb.rev { flex-direction: row-reverse; }
+      .pb__img {
+        flex: 0 0 42%; height: auto; min-height: 360px;
+        clip-path: polygon(0 0,100% 0,90% 100%,0 100%);
+      }
+      .pb.rev .pb__img {
+        clip-path: polygon(10% 0,100% 0,100% 100%,0 100%);
+      }
+      .pb__body {
+        flex: 1; padding: 3rem 2.5rem;
+        display: flex; flex-direction: column; justify-content: center;
+      }
+    }
 
-/* Section label */
-.sec-label{
-  font-family:var(--font-disp);font-weight:700;font-size:.78rem;
-  letter-spacing:.18em;text-transform:uppercase;
-  display:inline-flex;align-items:center;gap:.5rem;
-  margin-bottom:1.5rem;
-  padding-bottom:.35rem;
-  border-bottom:2px solid var(--y);
-  color:inherit;
-}
-.section--dark .sec-label{border-bottom-color:var(--y)}
-.section--yellow .sec-label{border-bottom-color:var(--b)}
-.sec-h2{
-  font-size:clamp(2.2rem,7vw,5rem);
-  line-height:1.05;
-  margin-bottom:1.5rem;
-}
+    /* ── WHY ── */
+    .why {
+      background: var(--yel); color: var(--blk);
+      padding: 5rem 1.5rem 5.5rem;
+      clip-path: polygon(0 0,100% 1.5%,100% 98.5%,0 100%);
+    }
+    .why__inner { max-width: 1400px; margin: 0 auto; }
+    .why .sec__eye { color: rgba(0,0,0,0.45); }
+    .why .sec__eye::before { background: var(--blk); }
+    .why .sec__h { color: var(--blk); }
+    .why__list { margin-top: 3rem; }
+    .wi {
+      display: flex; flex-direction: column; gap: 0.75rem;
+      padding: 2rem 0; border-top: 2px solid rgba(0,0,0,0.12);
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .wi:last-child { border-bottom: 2px solid rgba(0,0,0,0.12); }
+    .wi.vis { opacity: 1; transform: none; }
+    .wi__num {
+      font-family: var(--cond); font-weight: 900;
+      font-size: clamp(3rem,10vw,5.5rem); line-height: 0.82;
+      color: var(--blk); opacity: 0.1; letter-spacing: -0.04em;
+    }
+    .wi__icon { color: var(--blk); }
+    .wi__title {
+      font-family: var(--cond); font-weight: 900;
+      font-size: clamp(1.4rem,4vw,2.1rem); line-height: 1.15;
+      letter-spacing: -0.01em; text-transform: uppercase; color: var(--blk);
+    }
+    html[lang="th"] .wi__title { letter-spacing: 0; line-height: 1.45; }
+    .wi__txt { font-size: 0.97rem; line-height: 1.8; color: rgba(0,0,0,0.65); max-width: 640px; }
+    @media(min-width:768px){
+      .wi { flex-direction: row; align-items: flex-start; gap: 2rem; }
+      .wi__num { flex: 0 0 100px; }
+      .wi__icon { flex: 0 0 36px; padding-top: 6px; }
+      .wi__body { flex: 1; }
+    }
 
-/* ─── ABOUT / BRAND STRIP ─── */
-.brand-strip{
-  background:var(--y);
-  border-top:var(--rule);border-bottom:var(--rule);
-  overflow:hidden;
-  padding:.9rem 0;
-  position:relative;
-}
-.brand-strip__track{
-  display:flex;gap:3rem;
-  animation:tickerScroll 22s linear infinite;
-  width:max-content;
-}
-.brand-strip__track span{
-  font-family:var(--font-disp);font-weight:700;font-size:1.05rem;
-  letter-spacing:.12em;text-transform:uppercase;color:var(--b);
-  white-space:nowrap;display:flex;align-items:center;gap:.75rem;
-}
-.brand-strip__track span::after{content:'//';opacity:.4}
-@keyframes tickerScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    /* ── SPECS ── */
+    .specs { background: var(--blk); }
+    .specs-tbl { margin-top: 2.5rem; border-top: 3px solid var(--yel); }
+    .srow {
+      display: flex; flex-direction: column; gap: 0.35rem;
+      padding: 1.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);
+      opacity: 0; transform: translateX(-22px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+    .srow.vis { opacity: 1; transform: none; }
+    .srow__lbl {
+      font-family: var(--mono); font-size: 0.68rem;
+      letter-spacing: 0.18em; color: var(--yel); text-transform: uppercase;
+    }
+    html[lang="th"] .srow__lbl { letter-spacing: 0.04em; }
+    .srow__val {
+      font-family: var(--cond); font-weight: 900;
+      font-size: clamp(1.5rem,5vw,2.4rem); line-height: 1; color: var(--wht);
+    }
+    .srow__note {
+      font-family: var(--mono); font-size: 0.7rem;
+      color: rgba(255,255,255,0.35); letter-spacing: 0.04em;
+    }
+    @media(min-width:768px){
+      .srow { flex-direction: row; align-items: center; gap: 2rem; }
+      .srow__lbl { flex: 0 0 220px; }
+      .srow__val { flex: 1; }
+      .srow__note { flex: 0 0 180px; text-align: right; }
+    }
 
-/* ─── ABOUT SECTION ─── */
-.about-grid{
-  display:flex;flex-direction:column;gap:3rem;
-}
-.about-img-wrap{
-  position:relative;
-}
-.about-img{
-  width:100%;height:280px;object-fit:cover;
-  display:block;
-  clip-path:polygon(0 0,100% 0,100% 88%,4% 100%);
-}
-.about-float-card{
-  position:absolute;bottom:-1.5rem;right:1.25rem;
-  background:var(--y);padding:1rem 1.25rem;
-  border:2px solid var(--b);
-  box-shadow:4px 4px 0 var(--b);
-  max-width:180px;
-}
-.about-float-card strong{
-  font-family:var(--font-disp);font-weight:900;font-size:1.8rem;
-  color:var(--b);display:block;line-height:1;
-}
-.about-float-card span{font-size:.78rem;line-height:1.4;display:block;margin-top:.2rem}
-.about-text{padding-top:2.5rem}
-.about-text p{color:var(--c);max-width:560px}
+    /* ── TESTIMONIALS ── */
+    .testi { background: var(--blk); border-top: 3px solid var(--yel); }
+    .testi__scroll {
+      display: flex; gap: 1.25rem; overflow-x: auto; padding: 2rem 0 1rem;
+      scrollbar-width: thin; scrollbar-color: var(--yel) rgba(255,255,255,0.06);
+      -webkit-overflow-scrolling: touch;
+    }
+    .testi__scroll::-webkit-scrollbar { height: 3px; }
+    .testi__scroll::-webkit-scrollbar-thumb { background: var(--yel); }
+    .tc {
+      flex: 0 0 290px; padding: 1.75rem;
+      border: 1px solid rgba(255,230,0,0.2);
+      clip-path: polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px));
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .tc:hover { border-color: var(--yel); transform: translateY(-4px); }
+    .tc__q {
+      font-size: 0.92rem; line-height: 1.8;
+      color: rgba(255,255,255,0.7); margin-bottom: 1.5rem;
+    }
+    .tc__name {
+      font-family: var(--mono); font-size: 0.72rem;
+      color: var(--yel); letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    html[lang="th"] .tc__name { letter-spacing: 0.02em; }
+    .tc__co {
+      font-family: var(--mono); font-size: 0.67rem;
+      color: rgba(255,255,255,0.35); margin-top: 0.2rem;
+    }
 
-/* ─── PRODUCTS ─── */
-.products-scroller{
-  display:flex;gap:1.25rem;
-  overflow-x:auto;
-  padding-bottom:1.5rem;
-  scrollbar-width:thin;
-  scrollbar-color:var(--y) transparent;
-  cursor:grab;
-}
-.products-scroller:active{cursor:grabbing}
-.prod-card{
-  flex:0 0 280px;
-  border:var(--rule);
-  background:var(--w);
-  position:relative;
-  overflow:hidden;
-  transition:transform .3s var(--ease),box-shadow .3s;
-}
-.prod-card:hover{transform:translateY(-4px);box-shadow:6px 6px 0 var(--y)}
-.prod-card__img{
-  width:100%;height:200px;object-fit:cover;display:block;
-  transition:transform .5s var(--ease);
-}
-.prod-card:hover .prod-card__img{transform:scale(1.04)}
-.prod-card__band{
-  background:var(--y);
-  padding:.4rem .9rem;
-  font-family:var(--font-disp);font-weight:700;font-size:.78rem;
-  letter-spacing:.1em;text-transform:uppercase;
-  border-bottom:2px solid var(--b);
-}
-.prod-card__body{padding:1.1rem 1rem 1.25rem}
-.prod-card__name{
-  font-family:var(--font-disp);font-weight:800;font-size:1.35rem;
-  line-height:1.1;margin-bottom:.4rem;letter-spacing:.02em;text-transform:uppercase;
-}
-.prod-card__spec{
-  font-size:.82rem;color:var(--c);line-height:1.6;
-}
-.prod-card__spec li{list-style:none;display:flex;align-items:flex-start;gap:.4rem;padding:.1rem 0}
-.prod-card__spec li i{color:var(--y);flex-shrink:0;margin-top:.25rem}
-.prod-card__tag{
-  position:absolute;top:12px;right:0;
-  background:var(--b);color:var(--y);
-  font-family:var(--font-disp);font-weight:700;font-size:.72rem;
-  letter-spacing:.1em;text-transform:uppercase;
-  padding:.3rem .8rem;
-}
+    /* ── CLIENTS ── */
+    .clients {
+      background: var(--yel); padding: 2.5rem 1.5rem;
+    }
+    .clients__lbl {
+      font-family: var(--mono); font-size: 0.68rem;
+      letter-spacing: 0.22em; color: rgba(0,0,0,0.4);
+      text-transform: uppercase; text-align: center; margin-bottom: 1.75rem;
+    }
+    html[lang="th"] .clients__lbl { letter-spacing: 0.04em; }
+    .clients__row {
+      display: flex; flex-wrap: wrap; gap: 0.25rem 0;
+      justify-content: center; align-items: center; max-width: 1000px; margin: 0 auto;
+    }
+    .cname {
+      font-family: var(--cond); font-weight: 900;
+      font-size: clamp(0.85rem,2.5vw,1.2rem);
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: rgba(0,0,0,0.35); padding: 0.4rem 1.1rem;
+      border-left: 3px solid rgba(0,0,0,0.18);
+      transition: color 0.2s;
+    }
+    .cname:first-child { border-left: none; }
+    .cname:hover { color: var(--blk); }
 
-/* ─── SPECS FLOATING CARDS SECTION ─── */
-.specs-section{
-  background:var(--b);
-  position:relative;overflow:hidden;
-  padding:5rem 1.25rem;
-}
-.specs-section::before{
-  content:'SPEC';
-  position:absolute;right:-2rem;top:50%;transform:translateY(-50%) rotate(90deg);
-  font-family:var(--font-disp);font-weight:900;font-size:10rem;
-  color:rgba(255,214,0,.05);letter-spacing:.1em;pointer-events:none;
-  line-height:1;
-}
-.specs-grid{display:flex;flex-direction:column;gap:1rem}
-.spec-card{
-  background:rgba(255,255,255,.04);
-  border-left:3px solid var(--y);
-  padding:1.25rem 1.25rem 1.25rem 1.5rem;
-  position:relative;
-  transition:background .25s,transform .25s var(--ease);
-  cursor:default;
-}
-.spec-card:hover{background:rgba(255,214,0,.08);transform:translateX(4px)}
-.spec-card__num{
-  font-family:var(--font-disp);font-weight:900;font-size:3rem;
-  color:rgba(255,214,0,.15);
-  position:absolute;right:1rem;top:.5rem;line-height:1;
-}
-.spec-card__title{
-  font-family:var(--font-disp);font-weight:700;font-size:1.1rem;
-  color:var(--y);letter-spacing:.06em;text-transform:uppercase;
-  margin-bottom:.35rem;
-}
-.spec-card__desc{color:rgba(255,255,255,.7);font-size:.9rem;line-height:1.7}
-.specs-img{
-  width:100%;height:260px;object-fit:cover;
-  clip-path:polygon(0 6%,100% 0,100% 100%,0 100%);
-  margin-bottom:2rem;
-}
+    /* ── CONTACT ── */
+    .contact {
+      background: var(--yel); color: var(--blk);
+      padding: 7rem 1.5rem 5rem;
+      clip-path: polygon(0 3%,100% 0,100% 100%,0 100%);
+    }
+    .contact__inner { max-width: 1400px; margin: 0 auto; }
+    .contact .sec__eye { color: rgba(0,0,0,0.4); }
+    .contact .sec__eye::before { background: var(--blk); }
+    .contact__h {
+      font-family: var(--cond); font-weight: 900;
+      font-size: clamp(2.4rem,7vw,5.5rem); line-height: 1.0;
+      text-transform: uppercase; letter-spacing: -0.02em; color: var(--blk);
+      margin: 0.5rem 0 1.25rem;
+    }
+    html[lang="th"] .contact__h { letter-spacing: 0; line-height: 1.35; }
+    .contact__sub {
+      font-size: 1rem; line-height: 1.8; color: rgba(0,0,0,0.6);
+      max-width: 500px; margin-bottom: 2.5rem;
+    }
+    .contact__grid {
+      display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2.5rem;
+    }
+    .ci {
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding: 1.1rem 1.25rem; background: rgba(0,0,0,0.07);
+      border-left: 3px solid var(--blk); transition: background 0.2s;
+    }
+    .ci:hover { background: rgba(0,0,0,0.12); }
+    .ci__ico { flex-shrink: 0; margin-top: 2px; }
+    .ci__lbl {
+      font-family: var(--mono); font-size: 0.67rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(0,0,0,0.45); margin-bottom: 0.2rem;
+    }
+    html[lang="th"] .ci__lbl { letter-spacing: 0.03em; }
+    .ci__val {
+      font-family: var(--cond); font-weight: 700;
+      font-size: 1.05rem; color: var(--blk); line-height: 1.3;
+    }
+    .btn-dark {
+      display: inline-flex; align-items: center; gap: 0.65rem;
+      background: var(--blk); color: var(--yel);
+      font-family: var(--cond); font-weight: 700;
+      font-size: 1.05rem; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.9rem 1.8rem; cursor: pointer; border: none;
+      transition: background 0.2s, transform 0.2s; min-height: 48px;
+      clip-path: polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
+    }
+    html[lang="th"] .btn-dark { letter-spacing: 0; }
+    .btn-dark:hover { background: #1c1c1c; transform: translateY(-2px); }
+    @media(min-width:768px){
+      .contact__grid { flex-direction: row; flex-wrap: wrap; }
+      .ci { flex: 1 1 260px; }
+    }
 
-/* ─── WHY US — NUMBERED STEPS ─── */
-.why-steps{display:flex;flex-direction:column;gap:0}
-.why-step{
-  display:flex;gap:1.25rem;
-  padding:1.5rem 0;
-  border-bottom:1px solid rgba(74,74,74,.15);
-  opacity:0;transform:translateX(-20px);
-  transition:all .5s var(--ease);
-}
-.why-step.visible{opacity:1;transform:none}
-.why-step__num{
-  font-family:var(--font-disp);font-weight:900;font-size:3.5rem;
-  color:var(--y);line-height:1;flex-shrink:0;width:3rem;
-  padding-top:.2rem;
-}
-.why-step__body{}
-.why-step__title{
-  font-family:var(--font-disp);font-weight:700;font-size:1.2rem;
-  letter-spacing:.04em;text-transform:uppercase;margin-bottom:.3rem;
-}
-.why-step__desc{color:var(--c);font-size:.92rem}
+    /* ── FOOTER ── */
+    .foot {
+      background: var(--blk); padding: 1.75rem 1.5rem;
+      border-top: 2px solid rgba(255,230,0,0.18);
+    }
+    .foot__in {
+      max-width: 1400px; margin: 0 auto;
+      display: flex; flex-direction: column; gap: 0.75rem;
+    }
+    .foot__logo {
+      font-family: var(--cond); font-weight: 900;
+      font-size: 1.4rem; letter-spacing: 0.12em; color: var(--yel);
+    }
+    .foot__copy {
+      font-family: var(--mono); font-size: 0.67rem;
+      color: rgba(255,255,255,0.25); letter-spacing: 0.04em;
+    }
+    @media(min-width:768px){
+      .foot__in { flex-direction: row; justify-content: space-between; align-items: center; }
+    }
 
-/* ─── CERTIFICATIONS ─── */
-.cert-row{
-  display:grid;grid-template-columns:1fr 1fr;gap:1rem;
-  margin-top:2rem;
-}
-.cert-badge{
-  border:var(--rule);padding:1.1rem .9rem;
-  display:flex;flex-direction:column;align-items:center;text-align:center;gap:.5rem;
-  background:var(--w);
-  transition:all .25s var(--ease);
-}
-.cert-badge:hover{background:var(--y);transform:translateY(-2px)}
-.cert-badge i{color:var(--b)}
-.cert-badge strong{
-  font-family:var(--font-disp);font-weight:700;font-size:1.05rem;
-  letter-spacing:.06em;text-transform:uppercase;
-}
-.cert-badge span{font-size:.8rem;color:var(--c);line-height:1.4}
-.cert-badge:hover span,.cert-badge:hover strong,.cert-badge:hover i{color:var(--b)}
-
-/* ─── IMAGE GUTTERS EDITORIAL ROW ─── */
-.editorial{
-  display:grid;grid-template-columns:1fr;gap:0;
-  background:var(--b);
-}
-.editorial__img{
-  width:100%;height:280px;object-fit:cover;display:block;
-}
-.editorial__text{
-  background:var(--y);
-  padding:2.5rem 1.5rem;
-  border-top:4px solid var(--b);
-}
-.editorial__h3{
-  font-size:clamp(1.8rem,6vw,3.5rem);
-  color:var(--b);line-height:1.05;
-  margin-bottom:1rem;text-transform:uppercase;
-}
-.editorial__p{color:rgba(26,26,26,.8);font-size:.95rem;max-width:480px;line-height:1.8}
-
-/* ─── CONTACT ─── */
-.contact-grid{display:flex;flex-direction:column;gap:2.5rem}
-.contact-form{display:flex;flex-direction:column;gap:.9rem}
-.contact-form label{
-  font-family:var(--font-disp);font-weight:600;font-size:.82rem;
-  letter-spacing:.08em;text-transform:uppercase;margin-bottom:.2rem;display:block;
-}
-.contact-form input,
-.contact-form textarea,
-.contact-form select{
-  width:100%;padding:.75rem 1rem;
-  border:2px solid var(--c);background:var(--w);
-  font-family:var(--font-body);font-size:.95rem;
-  transition:border-color .2s;outline:none;
-  min-height:44px;
-}
-.contact-form input:focus,
-.contact-form textarea:focus{border-color:var(--y)}
-.contact-form textarea{height:120px;resize:vertical}
-.contact-info{display:flex;flex-direction:column;gap:1.25rem}
-.cinfo-item{
-  display:flex;align-items:flex-start;gap:.85rem;
-  padding-bottom:1.25rem;border-bottom:1px solid rgba(74,74,74,.15);
-}
-.cinfo-item:last-child{border-bottom:none}
-.cinfo-icon{
-  width:40px;height:40px;background:var(--y);
-  display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;border:2px solid var(--b);
-}
-.cinfo-icon i{color:var(--b)}
-.cinfo-label{
-  font-family:var(--font-disp);font-weight:700;font-size:.82rem;
-  letter-spacing:.08em;text-transform:uppercase;color:var(--c);
-  display:block;margin-bottom:.15rem;
-}
-.cinfo-val{font-size:.95rem;line-height:1.6}
-
-/* ─── FOOTER ─── */
-.footer{
-  background:var(--b);border-top:3px solid var(--y);
-  padding:2.5rem 1.25rem;
-}
-.footer__inner{
-  max-width:1280px;margin:0 auto;
-  display:flex;flex-direction:column;gap:1.5rem;
-}
-.footer__logo{
-  font-family:var(--font-disp);font-weight:900;font-size:1.5rem;
-  color:var(--y);letter-spacing:.06em;text-transform:uppercase;
-}
-.footer__logo span{color:rgba(255,255,255,.5);font-weight:400}
-.footer__tagline{color:rgba(255,255,255,.5);font-size:.85rem;line-height:1.7;margin-top:.35rem}
-.footer__links{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem}
-.footer__links a{
-  color:rgba(255,255,255,.6);font-family:var(--font-disp);
-  font-weight:600;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;
-  text-decoration:none;transition:color .2s;
-}
-.footer__links a:hover{color:var(--y)}
-.footer__copy{color:rgba(255,255,255,.3);font-size:.78rem;border-top:1px solid rgba(255,255,255,.1);padding-top:1.25rem}
-
-/* ─── THAI: zero out letter-spacing on translated UI elements ─── */
-html[lang=th] .nav__links a,
-html[lang=th] .mobile-menu a,
-html[lang=th] .sec-label,
-html[lang=th] .hero__tag,
-html[lang=th] .nav__cta,
-html[lang=th] .btn-primary,
-html[lang=th] .btn-outline,
-html[lang=th] .prod-card__band,
-html[lang=th] .prod-card__name,
-html[lang=th] .spec-card__title,
-html[lang=th] .why-step__title,
-html[lang=th] .cert-badge strong,
-html[lang=th] .cinfo-label,
-html[lang=th] .footer__links a,
-html[lang=th] h1,html[lang=th] h2,html[lang=th] h3,html[lang=th] h4{
-  letter-spacing:0!important;
-}
-html[lang=th] .brand-strip__track span{letter-spacing:0!important}
-
-/* ─── SCROLL REVEAL ─── */
-.reveal{
-  opacity:0;transform:translateY(24px);
-  transition:opacity .55s var(--ease),transform .55s var(--ease);
-}
-.reveal.visible{opacity:1;transform:none}
-
-/* ─── DESKTOP ─── */
-@media(min-width:768px){
-  .nav__links{display:flex}
-  .hamburger{display:none}
-  .mobile-menu{display:none!important}
-
-  .hero__vline{display:block}
-  .hero__content{padding:4rem 2rem 5rem}
-  .hero__h1{line-height:.9}
-  .hero__stats{grid-template-columns:repeat(4,1fr)}
-  .hero__stat{border-right:1px solid rgba(255,214,0,.2);border-bottom:none}
-  .hero__stat:last-child{border-right:none}
-
-  .about-grid{flex-direction:row;align-items:flex-start;gap:4rem}
-  .about-img-wrap{flex:0 0 48%}
-  .about-img{height:420px;clip-path:polygon(0 0,100% 0,100% 92%,0 100%)}
-  .about-float-card{right:-1.5rem;bottom:-2rem}
-  .about-text{flex:1;padding-top:0}
-
-  .specs-section{padding:6rem 2rem}
-  .specs-layout{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
-  .specs-img{height:380px;margin-bottom:0}
-  .specs-grid{gap:1.25rem}
-
-  .why-steps{gap:0}
-
-  .cert-row{grid-template-columns:repeat(4,1fr)}
-
-  .editorial{grid-template-columns:1fr 1fr}
-  .editorial__img{height:100%;min-height:380px}
-  .editorial__text{padding:3.5rem 3rem}
-  .editorial--rev .editorial__img{order:2}
-  .editorial--rev .editorial__text{order:1}
-
-  .contact-grid{flex-direction:row;gap:3.5rem}
-  .contact-form{flex:1}
-  .contact-info{flex:0 0 300px}
-
-  .footer__inner{flex-direction:row;align-items:flex-start;gap:3rem}
-  .footer__left{flex:1}
-  .footer__right{display:flex;flex-direction:column;align-items:flex-end;gap:1rem}
-  .footer__links{justify-content:flex-end}
-  .footer__copy{text-align:right;border-top:none;padding-top:0;margin-top:auto}
-}
-
-@media(min-width:1024px){
-  .nav__links a{padding:.5rem 1rem;font-size:.9rem}
-}
-</style>
+    /* ── SCROLL REVEAL ── */
+    .rev {
+      opacity: 0; transform: translateY(36px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .rev.vis { opacity: 1; transform: none; }
+    .rev:nth-child(2){ transition-delay: 0.1s; }
+    .rev:nth-child(3){ transition-delay: 0.2s; }
+    .rev:nth-child(4){ transition-delay: 0.3s; }
+  </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════
-     NAVBAR
-═══════════════════════════════ -->
-<nav class="nav" id="nav">
+<!-- NAV -->
+<nav class="nav" id="mainNav">
   <div class="nav__inner">
-    <a href="#" class="nav__logo">Uppakorn<span> Dee Dee</span></a>
-    <div class="nav__links">
-      <a href="#products" data-lang-th="สินค้า" data-lang-en="Products">สินค้า</a>
-      <a href="#why" data-lang-th="ทำไมต้องเรา" data-lang-en="Why Us">ทำไมต้องเรา</a>
-      <a href="#certs" data-lang-th="มาตรฐาน" data-lang-en="Standards">มาตรฐาน</a>
-      <a href="#contact" data-lang-th="ติดต่อ" data-lang-en="Contact">ติดต่อ</a>
+    <span class="nav__logo">ELECTRICA</span>
+    <div class="nav__desk">
+      <a href="#products" class="nav__lnk" data-lang-th="สินค้า" data-lang-en="Products">สินค้า</a>
+      <a href="#why" class="nav__lnk" data-lang-th="ทำไมต้องเรา" data-lang-en="Why Us">ทำไมต้องเรา</a>
+      <a href="#specs" class="nav__lnk" data-lang-th="ข้อมูลทางเทคนิค" data-lang-en="Specs">ข้อมูลทางเทคนิค</a>
+      <a href="#contact" class="nav__lnk" data-lang-th="ติดต่อ" data-lang-en="Contact">ติดต่อ</a>
     </div>
-    <div class="nav__right">
-      <div class="lang-sw">
-        <i data-lucide="globe"></i>
+    <div class="nav__actions">
+      <button class="lang-sw" aria-label="Switch language">
+        <i data-lucide="globe" width="14" height="14"></i>
         <span class="lang-sw__label">TH</span>
-      </div>
-      <a href="#contact" class="nav__cta" data-lang-th="ขอใบเสนอราคา" data-lang-en="Get Quote">ขอใบเสนอราคา</a>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
+      </button>
+      <button class="nav__burger" id="burger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </div>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#products" data-lang-th="สินค้าทั้งหมด" data-lang-en="All Products">สินค้าทั้งหมด</a>
-    <a href="#why" data-lang-th="ทำไมต้องเรา" data-lang-en="Why Us">ทำไมต้องเรา</a>
-    <a href="#certs" data-lang-th="มาตรฐานและการรับรอง" data-lang-en="Standards & Certs">มาตรฐานและการรับรอง</a>
-    <a href="#editorial" data-lang-th="เกี่ยวกับเรา" data-lang-en="About Us">เกี่ยวกับเรา</a>
-    <a href="#contact" data-lang-th="ติดต่อเรา" data-lang-en="Contact Us">ติดต่อเรา</a>
+  <div class="nav__drop" id="navDrop">
+    <a href="#products" class="nav__lnk" data-lang-th="สินค้า" data-lang-en="Products">สินค้า</a>
+    <a href="#why" class="nav__lnk" data-lang-th="ทำไมต้องเรา" data-lang-en="Why Us">ทำไมต้องเรา</a>
+    <a href="#specs" class="nav__lnk" data-lang-th="ข้อมูลทางเทคนิค" data-lang-en="Specs">ข้อมูลทางเทคนิค</a>
+    <a href="#contact" class="nav__lnk" data-lang-th="ติดต่อ" data-lang-en="Contact">ติดต่อ</a>
   </div>
 </nav>
 
-<!-- ═══════════════════════════════
-     HERO
-═══════════════════════════════ -->
-<section class="hero" id="home">
-  <div class="hero__bg"></div>
-  <div class="hero__rules"></div>
-  <div class="hero__vline"></div>
-  <div class="hero__content">
-    <div class="hero__tag">
-      <i data-lucide="zap" style="width:14px;height:14px"></i>
-      <span data-lang-th="มาตรฐาน มอก. · IEC · DIN" data-lang-en="Thai Industrial Standard · IEC · DIN">มาตรฐาน มอก. · IEC · DIN</span>
+<!-- HERO -->
+<section class="hero" id="hero">
+  <!-- mobile image -->
+  <div class="hero__img-mob">
+    <img src="https://images.unsplash.com/photo-1716643863806-989dd76ae093?w=800&h=500&fit=crop" alt="Industrial factory floor" loading="eager">
+  </div>
+  <!-- copy -->
+  <div class="hero__copy">
+    <span class="hero__over-num">01</span>
+    <p class="hero__eyebrow" data-lang-th="อุปกรณ์ไฟฟ้าระดับอุตสาหกรรม" data-lang-en="INDUSTRIAL-GRADE ELECTRICAL">อุปกรณ์ไฟฟ้าระดับอุตสาหกรรม</p>
+    <h1 class="hero__h1" data-lang-th="พลังงาน ที่ไม่มีวันหยุด" data-lang-en="POWER THAT NEVER STOPS">พลังงาน ที่ไม่มีวันหยุด</h1>
+    <p class="hero__sub" data-lang-th="เครื่องมือช่างไฟและอุปกรณ์ไฟฟ้าที่ออกแบบมาสำหรับโรงงานอุตสาหกรรม ทนทาน ปลอดภัย ใช้งานง่าย ส่งทั่วประเทศ" data-lang-en="Electrical tools and equipment engineered for industrial factories. Built tough. Certified safe. Ready to ship nationwide.">เครื่องมือช่างไฟและอุปกรณ์ไฟฟ้าที่ออกแบบมาสำหรับโรงงานอุตสาหกรรม ทนทาน ปลอดภัย ใช้งานง่าย ส่งทั่วประเทศ</p>
+    <a href="#products" class="btn-prim">
+      <i data-lucide="zap" width="18" height="18"></i>
+      <span data-lang-th="ดูสินค้าทั้งหมด" data-lang-en="BROWSE PRODUCTS">ดูสินค้าทั้งหมด</span>
+    </a>
+  </div>
+  <!-- desktop image -->
+  <div class="hero__img-desk">
+    <img src="https://images.unsplash.com/photo-1716643863806-989dd76ae093?w=900&h=1100&fit=crop" alt="Industrial factory floor" loading="eager">
+  </div>
+</section>
+
+<div class="tape"></div>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="products__hd rev">
+    <p class="sec__eye" data-lang-th="02 — สายผลิตภัณฑ์" data-lang-en="02 — PRODUCT LINES">02 — สายผลิตภัณฑ์</p>
+    <h2 class="sec__h" data-lang-th="ครบทุกความต้องการของโรงงาน" data-lang-en="COMPLETE FACTORY SOLUTIONS">ครบทุกความต้องการของโรงงาน</h2>
+  </div>
+
+  <div class="pb rev">
+    <div class="pb__img">
+      <img src="https://images.unsplash.com/photo-1716191300020-b52dec5b70a8?w=700&h=500&fit=crop" alt="Industrial electrical equipment in factory">
     </div>
-    <h1 class="hero__h1" data-lang-th="อุปกรณ์<br><em>ดีๆ</em>" data-lang-en="Factory<br><em>Grade.</em>">อุปกรณ์<br><em>ดีๆ</em></h1>
-    <p class="hero__sub" data-lang-th="เครื่องมือไฟฟ้าโรงงาน ปลั๊กอุตสาหกรรม คอนเนคเตอร์สาย และสายพ่วงคุณภาพสูง สำหรับงานโรงงานทุกประเภท" data-lang-en="Industrial electrical tools, factory plugs, cable connectors and high-spec extension cords built for every factory environment.">เครื่องมือไฟฟ้าโรงงาน ปลั๊กอุตสาหกรรม คอนเนคเตอร์สาย และสายพ่วงคุณภาพสูง สำหรับงานโรงงานทุกประเภท</p>
-    <div class="hero__actions">
-      <a href="#products" class="btn-primary">
-        <i data-lucide="layers" style="width:16px;height:16px"></i>
-        <span data-lang-th="ดูสินค้าทั้งหมด" data-lang-en="Browse Products">ดูสินค้าทั้งหมด</span>
-      </a>
-      <a href="#contact" class="btn-outline">
-        <span data-lang-th="ขอใบเสนอราคา" data-lang-en="Request Quote">ขอใบเสนอราคา</span>
-      </a>
+    <div class="pb__body">
+      <span class="pb__num">01</span>
+      <p class="pb__tag" data-lang-th="เครื่องมือช่างไฟ" data-lang-en="ELECTRICAL TOOLS">เครื่องมือช่างไฟ</p>
+      <h3 class="pb__name" data-lang-th="เครื่องมือช่างไฟโรงงาน" data-lang-en="FACTORY ELECTRICAL TOOLS">เครื่องมือช่างไฟโรงงาน</h3>
+      <p class="pb__desc" data-lang-th="อุปกรณ์ช่างไฟคุณภาพสูงครบชุด ทั้งคีมปากจระเข้ ไขควงหุ้มฉนวน เครื่องทดสอบแรงดัน มัลติมิเตอร์ และอุปกรณ์ป้องกันส่วนบุคคล รองรับการใช้งานหนักในสภาพแวดล้อมโรงงานอุตสาหกรรม" data-lang-en="Complete professional tool sets: insulated pliers, screwdrivers, voltage testers, multimeters and PPE. Rated for heavy industrial use in demanding factory conditions.">อุปกรณ์ช่างไฟคุณภาพสูงครบชุด ทั้งคีมปากจระเข้ ไขควงหุ้มฉนวน เครื่องทดสอบแรงดัน มัลติมิเตอร์ และอุปกรณ์ป้องกันส่วนบุคคล</p>
+      <div class="pb__specs">
+        <span class="stag">IEC 60900</span>
+        <span class="stag">1000V RATED</span>
+        <span class="stag" data-lang-th="ใช้งานหนัก" data-lang-en="HEAVY DUTY">ใช้งานหนัก</span>
+        <span class="stag" data-lang-th="ครบชุด" data-lang-en="FULL SET">ครบชุด</span>
+      </div>
     </div>
-    <div class="hero__stats">
-      <div class="hero__stat">
-        <span class="hero__stat-num">15+</span>
-        <span class="hero__stat-label" data-lang-th="ปีในอุตสาหกรรม" data-lang-en="Years in Industry">ปีในอุตสาหกรรม</span>
+  </div>
+
+  <div class="pb">
+    <div class="pb__img">
+      <img src="https://images.unsplash.com/photo-1558509549-ab3445732238?w=700&h=500&fit=crop" alt="Industrial power cables and wiring">
+    </div>
+    <div class="pb__body">
+      <span class="pb__num">02</span>
+      <p class="pb__tag" data-lang-th="ปลั๊กไฟอุตสาหกรรม" data-lang-en="INDUSTRIAL PLUGS">ปลั๊กไฟอุตสาหกรรม</p>
+      <h3 class="pb__name" data-lang-th="ปลั๊กไฟสำหรับโรงงาน" data-lang-en="FACTORY POWER PLUGS">ปลั๊กไฟสำหรับโรงงาน</h3>
+      <p class="pb__desc" data-lang-th="ปลั๊กและเต้ารับมาตรฐานอุตสาหกรรมรับรอง IP67 กันน้ำกันฝุ่นสมบูรณ์แบบ ทนต่อการกระแทก ทนความร้อน รองรับทั้งระบบ 3 เฟสและ 1 เฟส เหมาะสำหรับโรงงานทุกประเภท" data-lang-en="IP67-certified industrial plugs and sockets. Fully waterproof and dust-tight. Impact and heat resistant. Supports 3-phase and single-phase systems for every factory type.">ปลั๊กและเต้ารับมาตรฐานอุตสาหกรรมรับรอง IP67 กันน้ำกันฝุ่นสมบูรณ์แบบ ทนต่อการกระแทก ทนความร้อน รองรับทั้งระบบ 3 เฟสและ 1 เฟส</p>
+      <div class="pb__specs">
+        <span class="stag">IP67</span>
+        <span class="stag">16A / 32A / 63A</span>
+        <span class="stag">3P+N+E</span>
+        <span class="stag">IEC 60309</span>
       </div>
-      <div class="hero__stat">
-        <span class="hero__stat-num">3,000+</span>
-        <span class="hero__stat-label" data-lang-th="รายการสินค้า" data-lang-en="SKUs Available">รายการสินค้า</span>
+    </div>
+  </div>
+
+  <div class="pb rev">
+    <div class="pb__img">
+      <img src="https://images.unsplash.com/photo-1528953030358-b0c7de371f1f?w=700&h=500&fit=crop" alt="Wire crimping and electrical connectors">
+    </div>
+    <div class="pb__body">
+      <span class="pb__num">03</span>
+      <p class="pb__tag" data-lang-th="อุปกรณ์เชื่อมสาย" data-lang-en="WIRE CONNECTORS">อุปกรณ์เชื่อมสาย</p>
+      <h3 class="pb__name" data-lang-th="อุปกรณ์เชื่อมสายไฟ" data-lang-en="WIRE CONNECTOR SYSTEMS">อุปกรณ์เชื่อมสายไฟ</h3>
+      <p class="pb__desc" data-lang-th="ระบบเชื่อมต่อสายไฟครบวงจร ครอบคลุม Terminal Block, Crimp Connector, Butt Splice และ Heat Shrink Connector รองรับสายตั้งแต่ 0.5 ถึง 95 mm² ติดตั้งง่าย แน่นหนา ปลอดภัย" data-lang-en="Complete wiring connection systems: terminal blocks, crimp connectors, butt splices and heat shrink connectors. Covers 0.5–95mm² cable. Fast install, firm grip, zero compromise.">ระบบเชื่อมต่อสายไฟครบวงจร ครอบคลุม Terminal Block, Crimp Connector, Butt Splice และ Heat Shrink Connector รองรับสายตั้งแต่ 0.5 ถึง 95 mm²</p>
+      <div class="pb__specs">
+        <span class="stag">0.5–95MM²</span>
+        <span class="stag" data-lang-th="ทนความร้อน 105°C" data-lang-en="RATED 105°C">ทนความร้อน 105°C</span>
+        <span class="stag">UL / TÜV</span>
+        <span class="stag" data-lang-th="กันสั่น" data-lang-en="VIBRATION PROOF">กันสั่น</span>
       </div>
-      <div class="hero__stat">
-        <span class="hero__stat-num">500+</span>
-        <span class="hero__stat-label" data-lang-th="โรงงานลูกค้า" data-lang-en="Factory Clients">โรงงานลูกค้า</span>
-      </div>
-      <div class="hero__stat">
-        <span class="hero__stat-num">48h</span>
-        <span class="hero__stat-label" data-lang-th="จัดส่งทั่วไทย" data-lang-en="Delivery Nationwide">จัดส่งทั่วไทย</span>
+    </div>
+  </div>
+
+  <div class="pb">
+    <div class="pb__img">
+      <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=700&h=500&fit=crop" alt="Industrial extension cord and power strip">
+    </div>
+    <div class="pb__body">
+      <span class="pb__num">04</span>
+      <p class="pb__tag" data-lang-th="ปลั๊กพ่วง" data-lang-en="POWER EXTENSIONS">ปลั๊กพ่วง</p>
+      <h3 class="pb__name" data-lang-th="ปลั๊กพ่วงอุตสาหกรรม" data-lang-en="INDUSTRIAL POWER STRIPS">ปลั๊กพ่วงอุตสาหกรรม</h3>
+      <p class="pb__desc" data-lang-th="ปลั๊กพ่วงอุตสาหกรรมมาตรฐาน มอก. พร้อมระบบป้องกันไฟกระชากและวงจรตัดอัตโนมัติเมื่อเกินโหลด สายยาว 3–20 เมตร ฉนวนทนความร้อนสูง เหมาะสำหรับเครื่องจักรและงานหนักทุกประเภท" data-lang-en="TISI-standard industrial power strips with surge protection and auto circuit breaker. 3–20m heavy cables. High heat insulation. For machinery and all heavy-duty applications.">ปลั๊กพ่วงอุตสาหกรรมมาตรฐาน มอก. พร้อมระบบป้องกันไฟกระชากและวงจรตัดอัตโนมัติเมื่อเกินโหลด สายยาว 3–20 เมตร</p>
+      <div class="pb__specs">
+        <span class="stag">16A MAX</span>
+        <span class="stag" data-lang-th="ป้องกันไฟกระชาก" data-lang-en="SURGE PROTECT">ป้องกันไฟกระชาก</span>
+        <span class="stag">3–20M</span>
+        <span class="stag" data-lang-th="มอก. รับรอง" data-lang-en="TISI CERTIFIED">มอก. รับรอง</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════
-     TICKER STRIP
-═══════════════════════════════ -->
-<div class="brand-strip">
-  <div class="brand-strip__track" id="ticker">
-    <span data-lang-th="ปลั๊กโรงงาน" data-lang-en="Industrial Plugs">ปลั๊กโรงงาน</span>
-    <span data-lang-th="สายพ่วงคุณภาพสูง" data-lang-en="Heavy-Duty Extension Cords">สายพ่วงคุณภาพสูง</span>
-    <span data-lang-th="คอนเนคเตอร์สาย" data-lang-en="Cable Connectors">คอนเนคเตอร์สาย</span>
-    <span data-lang-th="เครื่องมือไฟฟ้าโรงงาน" data-lang-en="Factory Electrical Tools">เครื่องมือไฟฟ้าโรงงาน</span>
-    <span data-lang-th="มาตรฐาน มอก." data-lang-en="TIS Certified">มาตรฐาน มอก.</span>
-    <span data-lang-th="ส่งทั่วประเทศ" data-lang-en="Nationwide Delivery">ส่งทั่วประเทศ</span>
-    <!-- duplicate for seamless loop -->
-    <span data-lang-th="ปลั๊กโรงงาน" data-lang-en="Industrial Plugs">ปลั๊กโรงงาน</span>
-    <span data-lang-th="สายพ่วงคุณภาพสูง" data-lang-en="Heavy-Duty Extension Cords">สายพ่วงคุณภาพสูง</span>
-    <span data-lang-th="คอนเนคเตอร์สาย" data-lang-en="Cable Connectors">คอนเนคเตอร์สาย</span>
-    <span data-lang-th="เครื่องมือไฟฟ้าโรงงาน" data-lang-en="Factory Electrical Tools">เครื่องมือไฟฟ้าโรงงาน</span>
-    <span data-lang-th="มาตรฐาน มอก." data-lang-en="TIS Certified">มาตรฐาน มอก.</span>
-    <span data-lang-th="ส่งทั่วประเทศ" data-lang-en="Nationwide Delivery">ส่งทั่วประเทศ</span>
-  </div>
-</div>
+<div class="tape"></div>
 
-<!-- ═══════════════════════════════
-     ABOUT
-═══════════════════════════════ -->
-<section class="section" id="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-img-wrap reveal">
-        <img class="about-img" src="https://images.unsplash.com/photo-1772209415876-76ea6cbc2f0c?w=800&h=600&fit=crop" alt="Industrial factory floor workers">
-        <div class="about-float-card">
-          <strong>2009</strong>
-          <span data-lang-th="ก่อตั้งบริษัท" data-lang-en="Est. Year">ก่อตั้งบริษัท</span>
+<!-- WHY -->
+<section class="why" id="why">
+  <div class="why__inner">
+    <p class="sec__eye rev" data-lang-th="03 — ทำไมต้องเลือก Electrica" data-lang-en="03 — WHY CHOOSE ELECTRICA">03 — ทำไมต้องเลือก Electrica</p>
+    <h2 class="sec__h rev" data-lang-th="มาตรฐานที่ไม่มีข้อแม้" data-lang-en="STANDARDS WITHOUT COMPROMISE">มาตรฐานที่ไม่มีข้อแม้</h2>
+    <div class="why__list">
+
+      <div class="wi">
+        <span class="wi__num">01</span>
+        <div class="wi__icon"><i data-lucide="shield-check" width="30" height="30"></i></div>
+        <div class="wi__body">
+          <h3 class="wi__title" data-lang-th="ปลอดภัยตามมาตรฐานสากล" data-lang-en="INTERNATIONAL SAFETY STANDARDS">ปลอดภัยตามมาตรฐานสากล</h3>
+          <p class="wi__txt" data-lang-th="สินค้าทุกชิ้นผ่านการรับรองจาก IEC, CE, UL และ มอก. พร้อมใช้งานในโรงงานที่มีข้อบังคับด้านความปลอดภัยสูงสุด รวมถึงอุตสาหกรรมอาหาร ยา และยานยนต์" data-lang-en="Every product certified to IEC, CE, UL, and TISI standards. Cleared for use in food-grade, pharmaceutical, and automotive factories with the most stringent safety requirements.">สินค้าทุกชิ้นผ่านการรับรองจาก IEC, CE, UL และ มอก. พร้อมใช้งานในโรงงานที่มีข้อบังคับด้านความปลอดภัยสูงสุด</p>
         </div>
       </div>
-      <div class="about-text reveal">
-        <p class="sec-label"><i data-lucide="building-2" style="width:14px;height:14px"></i> <span data-lang-th="เกี่ยวกับเรา" data-lang-en="About Us">เกี่ยวกับเรา</span></p>
-        <h2 class="sec-h2" data-lang-th="ผู้เชี่ยวชาญ<br>อุปกรณ์ไฟฟ้า<br>โรงงาน" data-lang-en="Your Industrial<br>Electrical<br>Specialists">ผู้เชี่ยวชาญ<br>อุปกรณ์ไฟฟ้า<br>โรงงาน</h2>
-        <p data-lang-th="อุปกรณ์ดีๆ ดำเนินธุรกิจมากกว่า 15 ปี ในฐานะผู้จัดจำหน่ายอุปกรณ์ไฟฟ้าโรงงานชั้นนำ เราคัดสรรเฉพาะผลิตภัณฑ์ที่ผ่านมาตรฐาน มอก. และ IEC เพื่อให้มั่นใจว่าการดำเนินงานโรงงานของคุณปลอดภัยและมีประสิทธิภาพสูงสุด" data-lang-en="Uppakorn Dee Dee has operated for over 15 years as a leading distributor of industrial electrical equipment. We source only products certified to TIS and IEC standards, ensuring your factory operations remain safe and at peak efficiency.">อุปกรณ์ดีๆ ดำเนินธุรกิจมากกว่า 15 ปี ในฐานะผู้จัดจำหน่ายอุปกรณ์ไฟฟ้าโรงงานชั้นนำ เราคัดสรรเฉพาะผลิตภัณฑ์ที่ผ่านมาตรฐาน มอก. และ IEC เพื่อให้มั่นใจว่าการดำเนินงานโรงงานของคุณปลอดภัยและมีประสิทธิภาพสูงสุด</p>
-        <br>
-        <p data-lang-th="ไม่ว่าจะเป็นโรงงานอาหาร ยานยนต์ อิเล็กทรอนิกส์ หรือปิโตรเคมี เรามีโซลูชันครบจบในที่เดียว พร้อมทีมผู้เชี่ยวชาญให้คำแนะนำตลอด 24 ชั่วโมง" data-lang-en="From food processing and automotive to electronics and petrochemical plants — we deliver complete solutions with our expert advisory team available around the clock.">ไม่ว่าจะเป็นโรงงานอาหาร ยานยนต์ อิเล็กทรอนิกส์ หรือปิโตรเคมี เรามีโซลูชันครบจบในที่เดียว พร้อมทีมผู้เชี่ยวชาญให้คำแนะนำตลอด 24 ชั่วโมง</p>
-        <br>
-        <a href="#contact" class="btn-primary" style="margin-top:.5rem">
-          <i data-lucide="phone" style="width:16px;height:16px"></i>
-          <span data-lang-th="ปรึกษาผู้เชี่ยวชาญ" data-lang-en="Talk to an Expert">ปรึกษาผู้เชี่ยวชาญ</span>
-        </a>
+
+      <div class="wi">
+        <span class="wi__num">02</span>
+        <div class="wi__icon"><i data-lucide="hammer" width="30" height="30"></i></div>
+        <div class="wi__body">
+          <h3 class="wi__title" data-lang-th="ออกแบบมาเพื่องานหนัก" data-lang-en="ENGINEERED FOR PUNISHMENT">ออกแบบมาเพื่องานหนัก</h3>
+          <p class="wi__txt" data-lang-th="วัสดุเกรดอุตสาหกรรมทนทานต่อความร้อนสูง ฝุ่น ความชื้น และการกระแทก ผ่านการทดสอบอายุการใช้งานมากกว่า 100,000 รอบก่อนส่งถึงมือลูกค้า" data-lang-en="Industrial-grade materials rated for extreme heat, dust, moisture and impact. Every component tested through 100,000+ cycles before it reaches your floor.">วัสดุเกรดอุตสาหกรรมทนทานต่อความร้อนสูง ฝุ่น ความชื้น และการกระแทก ผ่านการทดสอบอายุการใช้งานมากกว่า 100,000 รอบ</p>
+        </div>
+      </div>
+
+      <div class="wi">
+        <span class="wi__num">03</span>
+        <div class="wi__icon"><i data-lucide="truck" width="30" height="30"></i></div>
+        <div class="wi__body">
+          <h3 class="wi__title" data-lang-th="ส่งตรงถึงโรงงานทั่วไทย" data-lang-en="DIRECT FACTORY DELIVERY">ส่งตรงถึงโรงงานทั่วไทย</h3>
+          <p class="wi__txt" data-lang-th="คลังสินค้าพร้อมส่งทันที รองรับคำสั่งซื้อทั้งปลีกและส่ง จัดส่งถึงโรงงานทั่วประเทศภายใน 1–3 วันทำการ มีระบบติดตามสินค้าแบบเรียลไทม์" data-lang-en="In-stock warehouse ready to ship. Handles retail and wholesale. Factory-direct delivery nationwide in 1–3 business days with real-time tracking.">คลังสินค้าพร้อมส่งทันที รองรับคำสั่งซื้อทั้งปลีกและส่ง จัดส่งถึงโรงงานทั่วประเทศภายใน 1–3 วันทำการ</p>
+        </div>
+      </div>
+
+      <div class="wi">
+        <span class="wi__num">04</span>
+        <div class="wi__icon"><i data-lucide="headphones" width="30" height="30"></i></div>
+        <div class="wi__body">
+          <h3 class="wi__title" data-lang-th="ทีมเทคนิค 24 ชั่วโมง" data-lang-en="24/7 TECHNICAL SUPPORT">ทีมเทคนิค 24 ชั่วโมง</h3>
+          <p class="wi__txt" data-lang-th="วิศวกรและช่างเทคนิคพร้อมให้คำปรึกษาตลอด 24 ชั่วโมง ช่วยเลือกสินค้า วางแผนระบบไฟฟ้า แก้ไขปัญหาเร่งด่วน เพื่อไม่ให้สายการผลิตหยุดชะงัก" data-lang-en="Engineers and technicians available 24/7. Product selection, electrical system planning, emergency troubleshooting — so your production line never stops.">วิศวกรและช่างเทคนิคพร้อมให้คำปรึกษาตลอด 24 ชั่วโมง ช่วยเลือกสินค้า วางแผนระบบไฟฟ้า แก้ไขปัญหาเร่งด่วน เพื่อไม่ให้สายการผลิตหยุดชะงัก</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="tape"></div>
+
+<!-- SPECS -->
+<section class="sec specs" id="specs">
+  <span class="sec__bg-num">04</span>
+  <div class="sec__inner">
+    <p class="sec__eye rev" data-lang-th="04 — ตัวเลขที่พิสูจน์ทุกอย่าง" data-lang-en="04 — NUMBERS THAT PROVE IT">04 — ตัวเลขที่พิสูจน์ทุกอย่าง</p>
+    <h2 class="sec__h rev" data-lang-th="ข้อมูลที่พูดแทนทุกสิ่ง" data-lang-en="DATA SPEAKS FOR ITSELF">ข้อมูลที่พูดแทนทุกสิ่ง</h2>
+    <div class="specs-tbl">
+      <div class="srow">
+        <span class="srow__lbl" data-lang-th="ประสบการณ์" data-lang-en="EXPERIENCE">ประสบการณ์</span>
+        <span class="srow__val">20+</span>
+        <span class="srow__note" data-lang-th="ปี ก่อตั้งปี 2547" data-lang-en="YEARS — FOUNDED 2004">ปี ก่อตั้งปี 2547</span>
+      </div>
+      <div class="srow">
+        <span class="srow__lbl" data-lang-th="รายการสินค้า" data-lang-en="PRODUCT SKUs">รายการสินค้า</span>
+        <span class="srow__val">2,400+</span>
+        <span class="srow__note" data-lang-th="รายการ พร้อมสต็อก" data-lang-en="ITEMS IN STOCK NOW">รายการ พร้อมสต็อก</span>
+      </div>
+      <div class="srow">
+        <span class="srow__lbl" data-lang-th="โรงงานลูกค้า" data-lang-en="FACTORY CLIENTS">โรงงานลูกค้า</span>
+        <span class="srow__val">800+</span>
+        <span class="srow__note" data-lang-th="โรงงาน ทั่วประเทศ" data-lang-en="FACTORIES NATIONWIDE">โรงงาน ทั่วประเทศ</span>
+      </div>
+      <div class="srow">
+        <span class="srow__lbl" data-lang-th="แรงดันไฟสูงสุด" data-lang-en="MAX VOLTAGE RATING">แรงดันไฟสูงสุด</span>
+        <span class="srow__val">1,000V AC</span>
+        <span class="srow__note">IEC 60900:2012</span>
+      </div>
+      <div class="srow">
+        <span class="srow__lbl" data-lang-th="การรับประกัน" data-lang-en="WARRANTY">การรับประกัน</span>
+        <span class="srow__val" data-lang-th="3 ปี" data-lang-en="3 YEARS">3 ปี</span>
+        <span class="srow__note" data-lang-th="เงื่อนไขมาตรฐาน" data-lang-en="STANDARD TERMS">เงื่อนไขมาตรฐาน</span>
+      </div>
+      <div class="srow">
+        <span class="srow__lbl" data-lang-th="เวลาจัดส่ง" data-lang-en="DELIVERY TIME">เวลาจัดส่ง</span>
+        <span class="srow__val" data-lang-th="1–3 วัน" data-lang-en="1–3 DAYS">1–3 วัน</span>
+        <span class="srow__note" data-lang-th="สำหรับสินค้าในสต็อก" data-lang-en="IN-STOCK ITEMS">สำหรับสินค้าในสต็อก</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════
-     PRODUCTS
-═══════════════════════════════ -->
-<section class="section section--dark" id="products">
-  <div class="container">
-    <p class="sec-label" style="color:var(--y)"><i data-lucide="package" style="width:14px;height:14px"></i> <span data-lang-th="สินค้าของเรา" data-lang-en="Our Products">สินค้าของเรา</span></p>
-    <h2 class="sec-h2" style="color:var(--w)" data-lang-th="เลือกตามประเภทสินค้า" data-lang-en="Browse By Category">เลือกตามประเภทสินค้า</h2>
-    <p style="color:rgba(255,255,255,.6);max-width:560px;margin-bottom:2rem" data-lang-th="เลื่อนซ้ายขวาเพื่อดูสินค้าทั้งหมด — มีมากกว่า 3,000 รายการพร้อมส่ง" data-lang-en="Scroll left and right to browse — over 3,000 SKUs ready to ship.">เลื่อนซ้ายขวาเพื่อดูสินค้าทั้งหมด — มีมากกว่า 3,000 รายการพร้อมส่ง</p>
-    <div class="products-scroller" id="prodScroller">
-      <!-- Card 1 -->
-      <div class="prod-card reveal">
-        <div class="prod-card__tag" data-lang-th="ยอดนิยม" data-lang-en="Best Seller">ยอดนิยม</div>
-        <img class="prod-card__img" src="https://images.unsplash.com/photo-1584809923235-fabdba83d1df?w=600&h=400&fit=crop" alt="Industrial cables and wires">
-        <div class="prod-card__band" data-lang-th="สายไฟฟ้าอุตสาหกรรม" data-lang-en="Industrial Cables">สายไฟฟ้าอุตสาหกรรม</div>
-        <div class="prod-card__body">
-          <div class="prod-card__name" data-lang-th="สาย NYY / THW" data-lang-en="NYY / THW Cable">สาย NYY / THW</div>
-          <ul class="prod-card__spec">
-            <li><i data-lucide="check" style="width:13px;height:13px"></i><span data-lang-th="ทนทานต่อความร้อน 90°C" data-lang-en="Heat resistant up to 90°C">ทนทานต่อความร้อน 90°C</span></li>
-            <li><i data-lucide="check" style="width:13px;height:13px"></i><span data-lang-th="มาตรฐาน มอก. 11" data-lang-en="TIS 11 Certified">มาตรฐาน มอก. 11</span></li>
-            <li><i data-lucide="check" style="width:13px;height:13px"></i><span data-lang-th="ขนาด 1.5 – 240 ตร.มม." data-lang-en="1.5 – 240 mm² cross-section">ขนาด 1.5 – 240 ตร.มม.</span></li>
-          </ul>
-        </div>
-      </div>
-      <!-- Card 2 -->
-      <div class="prod-card reveal">
-        <img class="prod-card__img" src="https://images.unsplash.com/photo-1619249722898-492c571615fe?w=600&h=400&fit=crop" alt="Industrial plug connectors">
-        <div class="prod-card__band" data-lang-th="ปลั๊กอุตสาหกรรม" data-lang-en="Industrial Plugs">ปลั๊กอุตสาหกรรม</div>
-        <div class="prod-card__body">
-          <div class="prod-card__name" data-lang-th="ปลั๊ก IP44 / IP67" data-lang-en="IP44 / IP67 Plug">ปลั๊ก IP44 / IP67</div>
-          <ul class="prod-card__spec">
-            <li><i data-lucide="check" style="width:13px;height:13px"></i><span data-lang-th="กันน้ำและกันฝุ่น" data-lang-en="Waterproof & dustproof">กันน้ำและกันฝุ่น</span></li>
-            <li><i data-lucide="check" style="width:13px;height:13px"></i><span data-lang-th="16A – 125A / 220V – 400V" data-lang-en="16A – 125A / 220V – 400V">16A – 125A / 220V – 400V</span></li>
-            <li><i data-lucide="check" style="width:13px;height:13px"></i><span data-lang-th="ตัวยึดสายแบบ PG" data-lang-en="PG-type cable gland">ตัวยึดสายแบบ PG</span></li>
-          </ul>
-        </div>
-      </div>
-      <!-- Card 3 -->
-      <div class="prod-card reveal">
-        <img class="prod-card__img" src="https://images.unsplash.com/photo-1520234939602-6b957f8b9c1c?w=600&h=400&fit=crop" alt="Electrical meters and panels">
-        <div class="prod-card__band" data-lang-th="สายพ่วง" data-lang-en="Extension Cords">สายพ่วง</div>
-        <div class="prod-card__body">
-          <div class="prod-card__name" data-lang-th="สายพ่วง Heavy Duty" data-lang-en="Heavy Duty Power Strip">สายพ่วง Heavy Duty</div>
-          <ul class="prod-card__spec">
-            <li><i data-lucide="check" style="width:13px;height:13px"></i><span data-lang-th="กระแส 16A – 32A" data-lang-en="16A – 32A rated current">กระแส 16A – 32A</span></li>
-            <li><i data-lucide="check" style="width:13px;height:13px"></i><span data-lang-th="สาย VCT 3×2.5 / 3×4 ตร.มม." data-lang-en="VCT 3×2.5 / 3×4 mm² cable">สาย VCT 3×2.5 / 3×4 ตร.มม.</span></li>
-            <li><i data-lucide="check" style="width:13px;height:13px"></i><span data-lang-th="ระบบป้องกันโหลดเกิน" data-lang-en="Overload protection built-in">ระบบป้องกันโหลดเกิน</span></li>
-          </ul>
-        </div>
-      </div>
-      <!-- Card 4 -->
-      <div class="prod-card reveal">
-        <div class="prod-card__tag" data-lang-th="ใหม่" data-lang-en="New">ใหม่</div>
-        <img class="prod-card__img" src="https://images.unsplash.com/photo-1566417110104-cd4f94af0fb3?w=600&h=400&fit=crop" alt="Industrial electrical equipment">
-        <div class="prod-card__band" data-lang-th="คอนเนคเตอร์" data-lang-en="Connectors">คอนเนคเตอร์</div>
-        <div class="prod-card__body">
-          <div class="prod-card__name" data-lang-th="Terminal Block / Wago" data-lang-en="Terminal Block / Wago">Terminal Block / Wago</div>
-          <ul class="prod-card__spec">
-            <li><i data-lucide="check" style="width:13px;height:13px"></i><span data-lang-th="สำหรับสาย 0.5 – 35 ตร.มม." data-lang-en="Fits 0.5 – 35 mm² cables">สำหรับสาย 0.5 – 35 ตร.มม.</span></li>
-            <li><i data-lucide="check" style="width:13px;height:13px"></i><span data-lang-th="ระบบ spring-clamp ไม่ต้องใช้ไขควง" data-lang-en="Tool-free spring-clamp system">ระบบ spring-clamp ไม่ต้องใช้ไขควง</span></li>
-            <li><i data-lucide="check" style="width:13px;height:13px"></i><span data-lang-th="แรงดัน 250V – 1000V" data-lang-en="250V – 1000V rated voltage">แรงดัน 250V – 1000V</span></li>
-          </ul>
-        </div>
-      </div>
-      <!-- Card 5 -->
-      <div class="prod-card reveal">
-        <img class="prod-card__img" src="https://images.unsplash.com/photo-1720036236694-d0a231c52563?w=600&h=400&fit=crop" alt="Factory machinery environment">
-        <div class="prod-card__band" data-lang-th="อุปกรณ์ป้องกัน" data-lang-en="Protection Devices">อุปกรณ์ป้องกัน</div>
-        <div class="prod-card__body">
-          <div class="prod-card__name" data-lang-th="เบรคเกอร์ MCB / MCCB" data-lang-en="MCB / MCCB Breaker">เบรคเกอร์ MCB / MCCB</div>
-          <ul class="prod-card__spec">
-            <li><i data-lucide="check" style="width:13px;height:13px"></i><span data-lang-th="พิกัด 6A – 1600A" data-lang-en="6A – 1600A rated">พิกัด 6A – 1600A</span></li>
-            <li><i data-lucide="check" style="width:13px;height:13px"></i><span data-lang-th="มาตรฐาน IEC 60947" data-lang-en="IEC 60947 compliant">มาตรฐาน IEC 60947</span></li>
-            <li><i data-lucide="check" style="width:13px;height:13px"></i><span data-lang-th="ป้องกันไฟฟ้าลัดวงจร / โหลดเกิน" data-lang-en="Short-circuit & overload protection">ป้องกันไฟฟ้าลัดวงจร / โหลดเกิน</span></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div style="margin-top:2rem;text-align:center">
-      <a href="#contact" class="btn-primary">
-        <i data-lucide="list" style="width:16px;height:16px"></i>
-        <span data-lang-th="ดูแคตตาล็อกเต็ม" data-lang-en="View Full Catalogue">ดูแคตตาล็อกเต็ม</span>
-      </a>
-    </div>
-  </div>
-</section>
+<div class="tape"></div>
 
-<!-- ═══════════════════════════════
-     SPECS SECTION
-═══════════════════════════════ -->
-<section class="specs-section" id="specs">
-  <div class="container">
-    <div class="specs-layout">
-      <div>
-        <img class="specs-img" src="https://images.unsplash.com/photo-1759763823587-c8bd07fca246?w=800&h=600&fit=crop" alt="Workers in safety vests and hard hats inspecting equipment">
+<!-- TESTIMONIALS -->
+<section class="sec testi" id="testimonials">
+  <div class="sec__inner">
+    <p class="sec__eye rev" data-lang-th="05 — เสียงจากลูกค้า" data-lang-en="05 — CLIENT VOICES">05 — เสียงจากลูกค้า</p>
+    <h2 class="sec__h rev" data-lang-th="โรงงานชั้นนำไว้วางใจเรา" data-lang-en="TRUSTED BY LEADING FACTORIES">โรงงานชั้นนำไว้วางใจเรา</h2>
+    <div class="testi__scroll">
+      <div class="tc">
+        <p class="tc__q" data-lang-th='"ปลั๊กไฟอุตสาหกรรมของ Electrica ผ่านการใช้งานในโรงงานที่มีฝุ่นและความร้อนสูงมาแล้วกว่า 2 ปี ไม่มีปัญหาใดๆ เลย"' data-lang-en='"Electrica industrial plugs have been running in our high-dust, high-heat facility for 2 years without a single issue."'>"ปลั๊กไฟอุตสาหกรรมของ Electrica ผ่านการใช้งานในโรงงานที่มีฝุ่นและความร้อนสูงมาแล้วกว่า 2 ปี ไม่มีปัญหาใดๆ เลย"</p>
+        <p class="tc__name" data-lang-th="คุณสมชาย วงศ์เจริญ" data-lang-en="Mr. Somchai Wongcharoen">คุณสมชาย วงศ์เจริญ</p>
+        <p class="tc__co" data-lang-th="โรงงานชิ้นส่วนยานยนต์ พระนครศรีอยุธยา" data-lang-en="Auto Parts Factory, Ayutthaya">โรงงานชิ้นส่วนยานยนต์ พระนครศรีอยุธยา</p>
       </div>
-      <div>
-        <p class="sec-label" style="color:var(--y);border-bottom-color:var(--y)"><i data-lucide="cpu" style="width:14px;height:14px"></i> <span data-lang-th="คุณสมบัติสินค้า" data-lang-en="Product Specs">คุณสมบัติสินค้า</span></p>
-        <h2 class="sec-h2" style="color:var(--w);margin-bottom:2rem" data-lang-th="สร้างมาเพื่อ<br>งานหนัก" data-lang-en="Built For<br>Heavy Duty">สร้างมาเพื่อ<br>งานหนัก</h2>
-        <div class="specs-grid">
-          <div class="spec-card reveal">
-            <span class="spec-card__num">01</span>
-            <div class="spec-card__title" data-lang-th="ทนความร้อนสูง" data-lang-en="High-Temp Resistant">ทนความร้อนสูง</div>
-            <div class="spec-card__desc" data-lang-th="ฉนวนพิเศษ PVC/XLPE ทนได้ถึง 90°C สำหรับสภาพแวดล้อมที่มีความร้อนสูงในโรงงาน" data-lang-en="Specialist PVC/XLPE insulation rated up to 90°C — built for high-temperature industrial environments.">ฉนวนพิเศษ PVC/XLPE ทนได้ถึง 90°C สำหรับสภาพแวดล้อมที่มีความร้อนสูงในโรงงาน</div>
-          </div>
-          <div class="spec-card reveal">
-            <span class="spec-card__num">02</span>
-            <div class="spec-card__title" data-lang-th="กันน้ำระดับ IP67" data-lang-en="IP67 Waterproofing">กันน้ำระดับ IP67</div>
-            <div class="spec-card__desc" data-lang-th="ปลั๊กและคอนเนคเตอร์ระดับ IP44–IP67 กันน้ำและฝุ่นสำหรับโรงงานที่มีการล้างทำความสะอาดบ่อยครั้ง" data-lang-en="IP44–IP67 rated plugs and connectors — fully protected against water jets and dust ingress.">ปลั๊กและคอนเนคเตอร์ระดับ IP44–IP67 กันน้ำและฝุ่นสำหรับโรงงานที่มีการล้างทำความสะอาดบ่อยครั้ง</div>
-          </div>
-          <div class="spec-card reveal">
-            <span class="spec-card__num">03</span>
-            <div class="spec-card__title" data-lang-th="ผ่านมาตรฐาน มอก." data-lang-en="TIS / IEC Certified">ผ่านมาตรฐาน มอก.</div>
-            <div class="spec-card__desc" data-lang-th="สินค้าทุกรายการผ่านการทดสอบและรับรองตามมาตรฐานอุตสาหกรรมไทย (มอก.) และ IEC ระดับสากล" data-lang-en="Every product is tested and certified to Thai Industrial Standard (TIS) and international IEC norms.">สินค้าทุกรายการผ่านการทดสอบและรับรองตามมาตรฐานอุตสาหกรรมไทย (มอก.) และ IEC ระดับสากล</div>
-          </div>
-          <div class="spec-card reveal">
-            <span class="spec-card__num">04</span>
-            <div class="spec-card__title" data-lang-th="ประกันสินค้า 2 ปี" data-lang-en="2-Year Product Warranty">ประกันสินค้า 2 ปี</div>
-            <div class="spec-card__desc" data-lang-th="รับประกันคุณภาพ 2 ปีในทุกสินค้าหลัก พร้อมบริการเปลี่ยนสินค้าและสนับสนุนทางเทคนิคโดยไม่มีค่าใช้จ่าย" data-lang-en="2-year quality guarantee on all major products with free replacement and technical support included.">รับประกันคุณภาพ 2 ปีในทุกสินค้าหลัก พร้อมบริการเปลี่ยนสินค้าและสนับสนุนทางเทคนิคโดยไม่มีค่าใช้จ่าย</div>
-          </div>
-        </div>
+      <div class="tc">
+        <p class="tc__q" data-lang-th='"ทีมช่างเทคนิคโทรกลับภายใน 1 ชั่วโมง แก้ปัญหาได้ก่อนที่สายการผลิตจะต้องหยุด บริการหลังการขายดีมาก"' data-lang-en='"Tech team called back within an hour, resolved our issue before the production line went down. Outstanding after-sales service."'>"ทีมช่างเทคนิคโทรกลับภายใน 1 ชั่วโมง แก้ปัญหาได้ก่อนที่สายการผลิตจะต้องหยุด บริการหลังการขายดีมาก"</p>
+        <p class="tc__name" data-lang-th="คุณวิภาพร รัตนชัย" data-lang-en="Ms. Wipaporn Rattanachai">คุณวิภาพร รัตนชัย</p>
+        <p class="tc__co" data-lang-th="โรงงานอาหารและเครื่องดื่ม สมุทรสาคร" data-lang-en="Food & Beverage Factory, Samut Sakhon">โรงงานอาหารและเครื่องดื่ม สมุทรสาคร</p>
+      </div>
+      <div class="tc">
+        <p class="tc__q" data-lang-th='"สั่งซื้อปริมาณมากหลายล็อตแล้ว สินค้าตรงสเปคทุกครั้ง คุณภาพสม่ำเสมอ ราคาดีสำหรับมาตรฐานระดับนี้"' data-lang-en='"Multiple bulk orders in — specs met every time, consistent quality across every lot. Great value for this certification grade."'>"สั่งซื้อปริมาณมากหลายล็อตแล้ว สินค้าตรงสเปคทุกครั้ง คุณภาพสม่ำเสมอ ราคาดีสำหรับมาตรฐานระดับนี้"</p>
+        <p class="tc__name" data-lang-th="คุณธนพล ศิริมงคล" data-lang-en="Mr. Thanaphon Sirimongkol">คุณธนพล ศิริมงคล</p>
+        <p class="tc__co" data-lang-th="โรงงานอิเล็กทรอนิกส์ ปทุมธานี" data-lang-en="Electronics Factory, Pathum Thani">โรงงานอิเล็กทรอนิกส์ ปทุมธานี</p>
+      </div>
+      <div class="tc">
+        <p class="tc__q" data-lang-th='"ชอบที่ครบในที่เดียว ประหยัดเวลาสั่งซื้อมาก ระบบส่งออนไลน์ใช้งานง่าย ของถึงโรงงานตรงเวลาทุกครั้ง"' data-lang-en='"One-stop shop for everything. Saves huge ordering time. Easy online system, always on-time delivery to the factory."'>"ชอบที่ครบในที่เดียว ประหยัดเวลาสั่งซื้อมาก ระบบส่งออนไลน์ใช้งานง่าย ของถึงโรงงานตรงเวลาทุกครั้ง"</p>
+        <p class="tc__name" data-lang-th="คุณปิยะ อนุสรณ์" data-lang-en="Mr. Piya Anusorn">คุณปิยะ อนุสรณ์</p>
+        <p class="tc__co" data-lang-th="โรงงานพลาสติก ชลบุรี" data-lang-en="Plastics Factory, Chonburi">โรงงานพลาสติก ชลบุรี</p>
+      </div>
+      <div class="tc">
+        <p class="tc__q" data-lang-th='"Terminal Block ของ Electrica ทำให้งานเดินสายในตู้คอนโทรลเร็วขึ้นมาก ช่างเราชื่นชอบเพราะติดตั้งง่ายและแน่นหนา"' data-lang-en='"Electrica terminal blocks made control cabinet wiring dramatically faster. Our electricians love the easy install and solid grip."'>"Terminal Block ของ Electrica ทำให้งานเดินสายในตู้คอนโทรลเร็วขึ้นมาก ช่างเราชื่นชอบเพราะติดตั้งง่ายและแน่นหนา"</p>
+        <p class="tc__name" data-lang-th="คุณอนันต์ ตระกูลชัย" data-lang-en="Mr. Anan Trakulchai">คุณอนันต์ ตระกูลชัย</p>
+        <p class="tc__co" data-lang-th="โรงงานสิ่งทอ นครราชสีมา" data-lang-en="Textile Factory, Nakhon Ratchasima">โรงงานสิ่งทอ นครราชสีมา</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════
-     WHY US
-═══════════════════════════════ -->
-<section class="section section--gray" id="why">
-  <div class="container">
-    <p class="sec-label"><i data-lucide="shield-check" style="width:14px;height:14px"></i> <span data-lang-th="ทำไมต้องเลือกเรา" data-lang-en="Why Choose Us">ทำไมต้องเลือกเรา</span></p>
-    <h2 class="sec-h2" style="max-width:640px" data-lang-th="มาตรฐานระดับ<br>สากล ราคาที่คุ้มค่า" data-lang-en="World-Class<br>Standards At<br>Real Value">มาตรฐานระดับ<br>สากล ราคาที่คุ้มค่า</h2>
-    <div class="why-steps" style="margin-top:2.5rem">
-      <div class="why-step">
-        <div class="why-step__num">01</div>
-        <div class="why-step__body">
-          <div class="why-step__title" data-lang-th="คัดสรรเฉพาะสินค้าที่ผ่านมาตรฐาน" data-lang-en="Certified Products Only">คัดสรรเฉพาะสินค้าที่ผ่านมาตรฐาน</div>
-          <p class="why-step__desc" data-lang-th="เราไม่จำหน่ายสินค้าที่ไม่ผ่านการรับรอง ทุกรายการในคลังสินค้ามีใบรับรองคุณภาพที่ตรวจสอบได้" data-lang-en="We don't sell uncertified products. Every SKU in our warehouse comes with verifiable quality certification documentation.">เราไม่จำหน่ายสินค้าที่ไม่ผ่านการรับรอง ทุกรายการในคลังสินค้ามีใบรับรองคุณภาพที่ตรวจสอบได้</p>
-        </div>
-      </div>
-      <div class="why-step">
-        <div class="why-step__num">02</div>
-        <div class="why-step__body">
-          <div class="why-step__title" data-lang-th="ทีมวิศวกรไฟฟ้าให้คำปรึกษา" data-lang-en="Expert Engineering Advisory">ทีมวิศวกรไฟฟ้าให้คำปรึกษา</div>
-          <p class="why-step__desc" data-lang-th="ทีมวิศวกรไฟฟ้าของเราพร้อมช่วยออกแบบและเลือกสินค้าที่เหมาะสมกับงานของคุณโดยเฉพาะ ทั้งในด้านกำลังไฟ ความปลอดภัย และมาตรฐานที่ต้องการ" data-lang-en="Our electrical engineering team helps you specify and select the right products for your exact application — covering power ratings, safety, and compliance requirements.">ทีมวิศวกรไฟฟ้าของเราพร้อมช่วยออกแบบและเลือกสินค้าที่เหมาะสมกับงานของคุณโดยเฉพาะ</p>
-        </div>
-      </div>
-      <div class="why-step">
-        <div class="why-step__num">03</div>
-        <div class="why-step__body">
-          <div class="why-step__title" data-lang-th="สต็อกสินค้าพร้อมส่งทันที" data-lang-en="In-Stock, Ships Immediately">สต็อกสินค้าพร้อมส่งทันที</div>
-          <p class="why-step__desc" data-lang-th="คลังสินค้าขนาดใหญ่กว่า 3,000 รายการ พร้อมจัดส่งได้ภายใน 48 ชั่วโมงไปยังทุกพื้นที่ทั่วไทย ลดปัญหาการหยุดสายการผลิต" data-lang-en="Over 3,000 SKUs in stock, shipping within 48 hours across Thailand — minimizing production downtime for your facility.">คลังสินค้าขนาดใหญ่กว่า 3,000 รายการ พร้อมจัดส่งได้ภายใน 48 ชั่วโมงไปยังทุกพื้นที่ทั่วไทย</p>
-        </div>
-      </div>
-      <div class="why-step">
-        <div class="why-step__num">04</div>
-        <div class="why-step__body">
-          <div class="why-step__title" data-lang-th="ราคาสำหรับองค์กรและจัดซื้อจำนวนมาก" data-lang-en="Corporate & Bulk Pricing">ราคาสำหรับองค์กรและจัดซื้อจำนวนมาก</div>
-          <p class="why-step__desc" data-lang-th="โปรแกรมราคาพิเศษสำหรับลูกค้าองค์กร ผู้รับเหมา และการสั่งซื้อปริมาณมาก พร้อมเงื่อนไขการชำระเงินที่ยืดหยุ่น" data-lang-en="Special pricing tiers for corporate clients, contractors, and bulk orders — with flexible payment terms to match your procurement cycle.">โปรแกรมราคาพิเศษสำหรับลูกค้าองค์กร ผู้รับเหมา และการสั่งซื้อปริมาณมาก</p>
-        </div>
-      </div>
-      <div class="why-step">
-        <div class="why-step__num">05</div>
-        <div class="why-step__body">
-          <div class="why-step__title" data-lang-th="บริการหลังการขายครบวงจร" data-lang-en="Complete After-Sales Support">บริการหลังการขายครบวงจร</div>
-          <p class="why-step__desc" data-lang-th="บริการรับประกัน เปลี่ยนสินค้า และสนับสนุนทางเทคนิคจากทีมงานผู้เชี่ยวชาญ 7 วัน ไม่มีวันหยุด" data-lang-en="Warranty service, product exchange, and expert technical support — 7 days a week, no holidays.">บริการรับประกัน เปลี่ยนสินค้า และสนับสนุนทางเทคนิคจากทีมงานผู้เชี่ยวชาญ 7 วัน ไม่มีวันหยุด</p>
-        </div>
-      </div>
-    </div>
+<!-- CLIENTS -->
+<div class="tape"></div>
+<section class="clients">
+  <div class="clients__lbl" data-lang-th="โรงงานที่ไว้วางใจ Electrica" data-lang-en="FACTORIES THAT TRUST ELECTRICA">โรงงานที่ไว้วางใจ Electrica</div>
+  <div class="clients__row">
+    <span class="cname">AMATA CORP</span>
+    <span class="cname">HANA MICRO</span>
+    <span class="cname">SVI PCB</span>
+    <span class="cname">THAI UNION</span>
+    <span class="cname">PTT POLYMER</span>
+    <span class="cname">SCG CEMENT</span>
+    <span class="cname">DELTA ELEC</span>
+    <span class="cname">ROJANA IND</span>
   </div>
 </section>
+<div class="tape"></div>
 
-<!-- ═══════════════════════════════
-     EDITORIAL FULL-BLEED ROWS
-═══════════════════════════════ -->
-<div id="editorial">
-  <div class="editorial">
-    <img class="editorial__img" src="https://images.unsplash.com/photo-1772299121503-cd62a57e3a26?w=900&h=700&fit=crop" alt="Industrial warehouse inspection">
-    <div class="editorial__text">
-      <p class="sec-label" style="border-bottom-color:var(--b)"><i data-lucide="warehouse" style="width:14px;height:14px"></i> <span data-lang-th="คลังสินค้า" data-lang-en="Warehouse">คลังสินค้า</span></p>
-      <h3 class="editorial__h3" data-lang-th="คลังสินค้า<br>ขนาดใหญ่<br>พร้อมส่ง" data-lang-en="Large-Scale<br>Warehouse<br>Ready to Ship">คลังสินค้า<br>ขนาดใหญ่<br>พร้อมส่ง</h3>
-      <p class="editorial__p" data-lang-th="คลังสินค้าของเราครอบคลุมพื้นที่กว่า 5,000 ตร.ม. ควบคุมสภาพแวดล้อมเพื่อรักษาคุณภาพสินค้า พร้อมระบบการจัดการสินค้าคงคลังที่แม่นยำ สามารถรองรับออเดอร์ขนาดใหญ่ได้ในทันที" data-lang-en="Our 5,000 m² climate-controlled warehouse maintains product integrity with precision inventory management — ready to handle large-volume orders on short notice.">คลังสินค้าของเราครอบคลุมพื้นที่กว่า 5,000 ตร.ม. ควบคุมสภาพแวดล้อมเพื่อรักษาคุณภาพสินค้า พร้อมระบบการจัดการสินค้าคงคลังที่แม่นยำ</p>
-    </div>
-  </div>
-  <div class="editorial editorial--rev">
-    <img class="editorial__img" src="https://images.unsplash.com/photo-1737874960921-d1205a4f55da?w=900&h=700&fit=crop" alt="Safety-certified team members">
-    <div class="editorial__text" style="background:var(--b);border-top:4px solid var(--y)">
-      <p class="sec-label" style="color:var(--y);border-bottom-color:var(--y)"><i data-lucide="users" style="width:14px;height:14px"></i> <span data-lang-th="ทีมงาน" data-lang-en="Our Team">ทีมงาน</span></p>
-      <h3 class="editorial__h3" style="color:var(--w)" data-lang-th="ผู้เชี่ยวชาญ<br>ที่คุณวางใจได้" data-lang-en="Experts<br>You Can<br>Rely On">ผู้เชี่ยวชาญ<br>ที่คุณวางใจได้</h3>
-      <p class="editorial__p" style="color:rgba(255,255,255,.7)" data-lang-th="ทีมงานของเราผ่านการฝึกอบรมด้านความปลอดภัยไฟฟ้าและได้รับการรับรองจากสภาวิศวกร พร้อมให้คำปรึกษาเทคนิคเชิงลึกสำหรับโครงการทุกขนาด" data-lang-en="Our team holds certified electrical safety training and is accredited by the Engineering Council of Thailand — delivering deep technical consulting for projects of any scale.">ทีมงานของเราผ่านการฝึกอบรมด้านความปลอดภัยไฟฟ้าและได้รับการรับรองจากสภาวิศวกร พร้อมให้คำปรึกษาเทคนิคเชิงลึก</p>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════
-     CERTIFICATIONS
-═══════════════════════════════ -->
-<section class="section section--yellow" id="certs">
-  <div class="container">
-    <p class="sec-label" style="border-bottom-color:var(--b)"><i data-lucide="award" style="width:14px;height:14px"></i> <span data-lang-th="มาตรฐานและการรับรอง" data-lang-en="Standards & Certifications">มาตรฐานและการรับรอง</span></p>
-    <h2 class="sec-h2" data-lang-th="ได้รับการรับรอง<br>ระดับสากล" data-lang-en="Internationally<br>Certified">ได้รับการรับรอง<br>ระดับสากล</h2>
-    <p style="max-width:560px;margin-bottom:1rem" data-lang-th="สินค้าทุกรายการผ่านการทดสอบตามมาตรฐานที่เข้มงวด เพื่อความปลอดภัยและความน่าเชื่อถือในสภาพแวดล้อมอุตสาหกรรม" data-lang-en="Every product passes rigorous testing against the standards below — ensuring safety and reliability across all industrial environments.">สินค้าทุกรายการผ่านการทดสอบตามมาตรฐานที่เข้มงวด เพื่อความปลอดภัยและความน่าเชื่อถือในสภาพแวดล้อมอุตสาหกรรม</p>
-    <div class="cert-row">
-      <div class="cert-badge reveal">
-        <i data-lucide="shield" style="width:28px;height:28px"></i>
-        <strong>มอก.</strong>
-        <span data-lang-th="มาตรฐานอุตสาหกรรมไทย" data-lang-en="Thai Industrial Standard">มาตรฐานอุตสาหกรรมไทย</span>
-      </div>
-      <div class="cert-badge reveal">
-        <i data-lucide="shield" style="width:28px;height:28px"></i>
-        <strong>IEC 60947</strong>
-        <span data-lang-th="อุปกรณ์สวิตช์กำลังไฟฟ้า" data-lang-en="Low-voltage Switchgear">อุปกรณ์สวิตช์กำลังไฟฟ้า</span>
-      </div>
-      <div class="cert-badge reveal">
-        <i data-lucide="shield" style="width:28px;height:28px"></i>
-        <strong>IP 44 / 67</strong>
-        <span data-lang-th="การป้องกันสิ่งแปลกปลอม" data-lang-en="Ingress Protection Rating">การป้องกันสิ่งแปลกปลอม</span>
-      </div>
-      <div class="cert-badge reveal">
-        <i data-lucide="shield" style="width:28px;height:28px"></i>
-        <strong>DIN / VDE</strong>
-        <span data-lang-th="มาตรฐานเยอรมัน" data-lang-en="German Engineering Standard">มาตรฐานเยอรมัน</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════
-     CONTACT
-═══════════════════════════════ -->
-<section class="section" id="contact">
-  <div class="container">
-    <p class="sec-label"><i data-lucide="mail" style="width:14px;height:14px"></i> <span data-lang-th="ติดต่อเรา" data-lang-en="Contact Us">ติดต่อเรา</span></p>
-    <h2 class="sec-h2" style="margin-bottom:2.5rem" data-lang-th="พร้อมให้<br>บริการคุณ" data-lang-en="Ready To<br>Serve You">พร้อมให้<br>บริการคุณ</h2>
-    <div class="contact-grid">
-      <form class="contact-form" onsubmit="return false">
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact__inner">
+    <p class="sec__eye rev" data-lang-th="06 — ติดต่อเรา" data-lang-en="06 — CONTACT US">06 — ติดต่อเรา</p>
+    <h2 class="contact__h rev" data-lang-th="พร้อมตอบทุกคำถาม ทุกชั่วโมง" data-lang-en="READY TO ANSWER, EVERY HOUR">พร้อมตอบทุกคำถาม ทุกชั่วโมง</h2>
+    <p class="contact__sub rev" data-lang-th="ติดต่อฝ่ายขายเพื่อรับใบเสนอราคา ขอคำปรึกษาด้านเทคนิค หรือสอบถามข้อมูลสินค้า ทีมงานผู้เชี่ยวชาญพร้อมให้บริการทันที" data-lang-en="Reach our sales team for a quote, technical consultation, or product info. Specialist team ready to respond immediately.">ติดต่อฝ่ายขายเพื่อรับใบเสนอราคา ขอคำปรึกษาด้านเทคนิค หรือสอบถามข้อมูลสินค้า ทีมงานผู้เชี่ยวชาญพร้อมให้บริการทันที</p>
+    <div class="contact__grid">
+      <div class="ci rev">
+        <div class="ci__ico"><i data-lucide="phone" width="22" height="22"></i></div>
         <div>
-          <label data-lang-th="ชื่อ-นามสกุล" data-lang-en="Full Name">ชื่อ-นามสกุล</label>
-          <input type="text" placeholder="" required>
+          <p class="ci__lbl" data-lang-th="โทรศัพท์" data-lang-en="PHONE">โทรศัพท์</p>
+          <p class="ci__val">02-XXX-XXXX</p>
+          <p class="ci__val" style="font-size:0.85rem;opacity:0.65;" data-lang-th="ฝ่ายขาย 24 ชม." data-lang-en="Sales — 24hr">ฝ่ายขาย 24 ชม.</p>
         </div>
+      </div>
+      <div class="ci rev">
+        <div class="ci__ico"><i data-lucide="mail" width="22" height="22"></i></div>
         <div>
-          <label data-lang-th="บริษัท / โรงงาน" data-lang-en="Company / Factory">บริษัท / โรงงาน</label>
-          <input type="text">
+          <p class="ci__lbl" data-lang-th="อีเมล" data-lang-en="EMAIL">อีเมล</p>
+          <p class="ci__val">sales@electrica.co.th</p>
         </div>
+      </div>
+      <div class="ci rev">
+        <div class="ci__ico"><i data-lucide="message-circle" width="22" height="22"></i></div>
         <div>
-          <label data-lang-th="เบอร์โทรศัพท์" data-lang-en="Phone Number">เบอร์โทรศัพท์</label>
-          <input type="tel">
+          <p class="ci__lbl" data-lang-th="LINE ทางการ" data-lang-en="LINE OFFICIAL">LINE ทางการ</p>
+          <p class="ci__val">@electrica</p>
         </div>
+      </div>
+      <div class="ci rev">
+        <div class="ci__ico"><i data-lucide="map-pin" width="22" height="22"></i></div>
         <div>
-          <label data-lang-th="อีเมล" data-lang-en="Email Address">อีเมล</label>
-          <input type="email">
-        </div>
-        <div>
-          <label data-lang-th="รายละเอียดความต้องการ" data-lang-en="Your Requirements">รายละเอียดความต้องการ</label>
-          <textarea data-lang-th="ระบุสินค้าที่ต้องการ ปริมาณ และรายละเอียดอื่นๆ..." data-lang-en="Specify the products needed, quantities, and other details...">ระบุสินค้าที่ต้องการ ปริมาณ และรายละเอียดอื่นๆ...</textarea>
-        </div>
-        <button type="submit" class="btn-primary" style="border:none;cursor:pointer">
-          <i data-lucide="send" style="width:16px;height:16px"></i>
-          <span data-lang-th="ส่งข้อความ" data-lang-en="Send Message">ส่งข้อความ</span>
-        </button>
-      </form>
-      <div class="contact-info">
-        <div class="cinfo-item">
-          <div class="cinfo-icon"><i data-lucide="phone" style="width:18px;height:18px"></i></div>
-          <div>
-            <span class="cinfo-label" data-lang-th="โทรศัพท์" data-lang-en="Phone">โทรศัพท์</span>
-            <div class="cinfo-val">02-XXX-XXXX<br>082-XXX-XXXX</div>
-          </div>
-        </div>
-        <div class="cinfo-item">
-          <div class="cinfo-icon"><i data-lucide="mail" style="width:18px;height:18px"></i></div>
-          <div>
-            <span class="cinfo-label" data-lang-th="อีเมล" data-lang-en="Email">อีเมล</span>
-            <div class="cinfo-val">info@uppakorndeeDee.co.th</div>
-          </div>
-        </div>
-        <div class="cinfo-item">
-          <div class="cinfo-icon"><i data-lucide="map-pin" style="width:18px;height:18px"></i></div>
-          <div>
-            <span class="cinfo-label" data-lang-th="ที่อยู่" data-lang-en="Address">ที่อยู่</span>
-            <div class="cinfo-val" data-lang-th="เขตอุตสาหกรรม นิคมอมตะนคร<br>ชลบุรี 20000" data-lang-en="Amata Nakorn Industrial Estate<br>Chonburi 20000, Thailand">เขตอุตสาหกรรม นิคมอมตะนคร<br>ชลบุรี 20000</div>
-          </div>
-        </div>
-        <div class="cinfo-item">
-          <div class="cinfo-icon"><i data-lucide="clock" style="width:18px;height:18px"></i></div>
-          <div>
-            <span class="cinfo-label" data-lang-th="เวลาทำการ" data-lang-en="Business Hours">เวลาทำการ</span>
-            <div class="cinfo-val" data-lang-th="จันทร์ – เสาร์: 08:00 – 17:30<br>อาทิตย์: ปิดทำการ" data-lang-en="Mon – Sat: 08:00 – 17:30<br>Sunday: Closed">จันทร์ – เสาร์: 08:00 – 17:30<br>อาทิตย์: ปิดทำการ</div>
-          </div>
-        </div>
-        <div style="margin-top:1rem">
-          <a href="tel:02XXXXXXXX" class="btn-primary" style="width:100%;justify-content:center">
-            <i data-lucide="phone" style="width:16px;height:16px"></i>
-            <span data-lang-th="โทรหาเราเลย" data-lang-en="Call Us Now">โทรหาเราเลย</span>
-          </a>
+          <p class="ci__lbl" data-lang-th="ที่อยู่" data-lang-en="ADDRESS">ที่อยู่</p>
+          <p class="ci__val" data-lang-th="ถนนบางนา-ตราด กม.15 สมุทรปราการ" data-lang-en="Bangna-Trad Rd. Km.15, Samut Prakan">ถนนบางนา-ตราด กม.15 สมุทรปราการ</p>
         </div>
       </div>
     </div>
+    <a href="#contact" class="btn-dark rev">
+      <i data-lucide="send" width="18" height="18"></i>
+      <span data-lang-th="ขอใบเสนอราคา" data-lang-en="REQUEST A QUOTE">ขอใบเสนอราคา</span>
+    </a>
   </div>
 </section>
 
-<!-- ═══════════════════════════════
-     FOOTER
-═══════════════════════════════ -->
-<footer class="footer">
-  <div class="footer__inner">
-    <div class="footer__left">
-      <div class="footer__logo">Uppakorn<span> Dee Dee</span></div>
-      <p class="footer__tagline" data-lang-th="อุปกรณ์ดีๆ — ผู้จัดจำหน่ายอุปกรณ์ไฟฟ้าโรงงานคุณภาพสูง<br>มาตรฐาน มอก. · IEC · DIN" data-lang-en="Uppakorn Dee Dee — Premium industrial electrical equipment distributor<br>Certified to TIS · IEC · DIN standards">อุปกรณ์ดีๆ — ผู้จัดจำหน่ายอุปกรณ์ไฟฟ้าโรงงานคุณภาพสูง<br>มาตรฐาน มอก. · IEC · DIN</p>
-    </div>
-    <div class="footer__right">
-      <nav class="footer__links">
-        <a href="#products" data-lang-th="สินค้า" data-lang-en="Products">สินค้า</a>
-        <a href="#why" data-lang-th="ทำไมต้องเรา" data-lang-en="Why Us">ทำไมต้องเรา</a>
-        <a href="#certs" data-lang-th="มาตรฐาน" data-lang-en="Standards">มาตรฐาน</a>
-        <a href="#contact" data-lang-th="ติดต่อ" data-lang-en="Contact">ติดต่อ</a>
-      </nav>
-      <div class="footer__copy">
-        &copy; 2024 Uppakorn Dee Dee (อุปกรณ์ดีๆ). <span data-lang-th="สงวนลิขสิทธิ์" data-lang-en="All rights reserved.">สงวนลิขสิทธิ์</span>
-      </div>
-    </div>
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="foot__in">
+    <span class="foot__logo">ELECTRICA</span>
+    <p class="foot__copy" data-lang-th="© 2567 Electrica Co., Ltd. สงวนลิขสิทธิ์ทั้งหมด" data-lang-en="© 2024 Electrica Co., Ltd. All rights reserved.">© 2567 Electrica Co., Ltd. สงวนลิขสิทธิ์ทั้งหมด</p>
   </div>
 </footer>
 
-<!-- ═══════════════════════════════
-     JAVASCRIPT
-═══════════════════════════════ -->
+<script src="https://unpkg.com/lucide@0.460.0"></script>
 <script>
-// ─── Navbar scroll shrink
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 40);
-}, {passive: true});
+  lucide.createIcons();
 
-// ─── Hamburger
-const ham = document.getElementById('hamburger');
-const mob = document.getElementById('mobileMenu');
-ham.addEventListener('click', () => {
-  ham.classList.toggle('open');
-  mob.classList.toggle('open');
-});
-mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-  ham.classList.remove('open');
-  mob.classList.remove('open');
-}));
+  // Navbar shrink on scroll
+  var nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', function(){
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, {passive: true});
 
-// ─── Intersection Observer — scroll reveal
-const revealEls = document.querySelectorAll('.reveal');
-const stepEls = document.querySelectorAll('.why-step');
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      io.unobserve(e.target);
-    }
+  // Hamburger
+  var burger = document.getElementById('burger');
+  var drop = document.getElementById('navDrop');
+  burger.addEventListener('click', function(){
+    burger.classList.toggle('open');
+    drop.classList.toggle('open');
   });
-}, {threshold: 0.12, rootMargin: '0px 0px -40px 0px'});
-revealEls.forEach(el => io.observe(el));
-stepEls.forEach((el, i) => {
-  el.style.transitionDelay = (i * 0.08) + 's';
-  io.observe(el);
-});
-
-// ─── Product scroller drag
-const scroller = document.getElementById('prodScroller');
-let isDown = false, startX, scrollLeft;
-scroller.addEventListener('mousedown', e => {
-  isDown = true; startX = e.pageX - scroller.offsetLeft; scrollLeft = scroller.scrollLeft;
-});
-scroller.addEventListener('mouseleave', () => isDown = false);
-scroller.addEventListener('mouseup', () => isDown = false);
-scroller.addEventListener('mousemove', e => {
-  if (!isDown) return;
-  e.preventDefault();
-  const x = e.pageX - scroller.offsetLeft;
-  scroller.scrollLeft = scrollLeft - (x - startX) * 1.2;
-});
-
-// ─── Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const t = document.querySelector(a.getAttribute('href'));
-    if (t) { e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
+  drop.querySelectorAll('.nav__lnk').forEach(function(l){
+    l.addEventListener('click', function(){
+      burger.classList.remove('open');
+      drop.classList.remove('open');
+    });
   });
-});
 
-// ─── Lucide icons
-lucide.createIcons();
+  // Scroll reveal — IntersectionObserver
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('vis');
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold: 0.1});
+
+  document.querySelectorAll('.rev, .wi, .srow').forEach(function(el){ io.observe(el); });
+
+  // Stagger why items
+  document.querySelectorAll('.wi').forEach(function(el, i){
+    el.style.transitionDelay = (i * 0.1) + 's';
+  });
+
+  // Stagger spec rows
+  document.querySelectorAll('.srow').forEach(function(el, i){
+    el.style.transitionDelay = (i * 0.07) + 's';
+  });
 </script>
 
-<!-- ─── Language switcher (exact required script) -->
 <script>
-(function(){var K='site-lang',L=localStorage.getItem(K)||'th';function S(l){L=l;localStorage.setItem(K,l);document.documentElement.lang=l;document.querySelectorAll('[data-lang-th]').forEach(function(e){var t=e.getAttribute('data-lang-'+l);if(t!==null){if(/[<&]/.test(t)){e.innerHTML=t}else{e.textContent=t}}});var lb=document.querySelector('.lang-sw__label');if(lb){lb.textContent=l.toUpperCase()}}var sw=document.querySelector('.lang-sw');if(sw){sw.addEventListener('click',function(){S(L==='th'?'en':'th')});sw.style.cursor='pointer'}if(L!=='th'){S(L)}})();
+(function(){var K='site-lang',L=localStorage.getItem(K)||'th';function S(l){L=l;localStorage.setItem(K,l);document.documentElement.lang=l;document.querySelectorAll('[data-lang-th]').forEach(function(e){var t=e.getAttribute('data-lang-'+l);if(t!==null){e.textContent=t}});var lb=document.querySelector('.lang-sw__label');if(lb){lb.textContent=l.toUpperCase()}}var sw=document.querySelector('.lang-sw');if(sw){sw.addEventListener('click',function(){S(L==='th'?'en':'th')});sw.style.cursor='pointer'}if(L!=='th'){S(L)}})();
 </script>
-
 </body>
 </html>

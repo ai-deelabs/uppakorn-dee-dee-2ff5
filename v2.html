@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>อุปกรณ์ดีๆ — เครื่องมือไฟฟ้าโรงงานคุณภาพสูง</title>
+<title data-lang-th="อุปกรณ์ดีๆ — เครื่องมือไฟฟ้าโรงงานคุณภาพสูง" data-lang-en="Uppakorn Dee Dee — Premium Industrial Electrical Equipment">อุปกรณ์ดีๆ — เครื่องมือไฟฟ้าโรงงานคุณภาพสูง</title>
 <meta name="description" content="อุปกรณ์ดีๆ จำหน่ายเครื่องมือไฟฟ้าโรงงาน ปลั๊กไฟ คอนเน็กเตอร์สายไฟ และสายพ่วงคุณภาพสูง">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,14 +49,14 @@ body{
 }
 
 /* ─── NAVBAR ─── */
-nav{
+#navbar{
   position:fixed;top:0;left:0;right:0;z-index:100;
   display:flex;align-items:center;justify-content:space-between;
   padding:1.1rem 1.25rem;
   background:transparent;
   transition:background 0.35s,padding 0.35s,backdrop-filter 0.35s;
 }
-nav.scrolled{
+#navbar.scrolled{
   background:rgba(10,10,15,0.92);
   backdrop-filter:blur(12px);
   padding:0.7rem 1.25rem;
@@ -160,12 +160,12 @@ nav.scrolled{
 @media(min-width:768px){
   .nav-links{display:flex}
   .hamburger{display:none}
-  nav{padding:1.25rem 3rem}
-  nav.scrolled{padding:0.75rem 3rem}
+  #navbar{padding:1.25rem 3rem}
+  #navbar.scrolled{padding:0.75rem 3rem}
 }
 @media(min-width:1200px){
-  nav{padding:1.25rem 5rem}
-  nav.scrolled{padding:0.75rem 5rem}
+  #navbar{padding:1.25rem 5rem}
+  #navbar.scrolled{padding:0.75rem 5rem}
 }
 
 /* ─── HERO ─── */
@@ -986,7 +986,7 @@ footer{
         <h3 data-lang-th="ปลั๊กไฟอุตสาหกรรม 3 เฟส" data-lang-en="3-Phase Industrial Plugs">ปลั๊กไฟอุตสาหกรรม 3 เฟส</h3>
         <p data-lang-th="ปลั๊กไฟ 3 เฟสสำหรับเครื่องจักรโรงงาน ผลิตจากวัสดุทนความร้อนและแรงกระแทก ป้องกันการถอดโดยไม่ตั้งใจด้วยระบบล็อค" data-lang-en="3-phase plugs for heavy factory machinery. Constructed from impact and heat-resistant housing with an integrated safety lock preventing accidental disconnection.">ปลั๊กไฟ 3 เฟสสำหรับเครื่องจักรโรงงาน ผลิตจากวัสดุทนความร้อนและแรงกระแทก ป้องกันการถอดโดยไม่ตั้งใจด้วยระบบล็อค</p>
         <div class="product-specs">
-          <span class="spec-badge">3 เฟส</span>
+          <span class="spec-badge" data-lang-th="3 เฟส" data-lang-en="3-Phase">3 เฟส</span>
           <span class="spec-badge">32A – 63A</span>
           <span class="spec-badge">IEC 60309</span>
           <span class="spec-badge">IP44 / IP67</span>
@@ -1004,10 +1004,10 @@ footer{
         <h3 data-lang-th="สายพ่วงอุตสาหกรรมและรีลสาย" data-lang-en="Industrial Extension Cords & Cable Reels">สายพ่วงอุตสาหกรรมและรีลสาย</h3>
         <p data-lang-th="สายพ่วงแบบม้วนเก็บได้ สายเกรดโรงงานความยาว 10–50 เมตร ทนต่อน้ำมัน สารเคมี และอุณหภูมิต่ำ/สูง เหมาะสำหรับงานก่อสร้างและโรงงาน" data-lang-en="Retractable cable reels in factory-grade 10–50m lengths. Resistant to oil, chemicals, and extreme temperatures — built for construction sites and factory floors.">สายพ่วงแบบม้วนเก็บได้ สายเกรดโรงงานความยาว 10–50 เมตร ทนต่อน้ำมัน สารเคมี และอุณหภูมิต่ำ/สูง เหมาะสำหรับงานก่อสร้างและโรงงาน</p>
         <div class="product-specs">
-          <span class="spec-badge">10 – 50 เมตร</span>
+          <span class="spec-badge" data-lang-th="10 – 50 เมตร" data-lang-en="10 – 50 m">10 – 50 เมตร</span>
           <span class="spec-badge">16A / 32A</span>
-          <span class="spec-badge">มอก. 11</span>
-          <span class="spec-badge">ทนน้ำมัน</span>
+          <span class="spec-badge" data-lang-th="มอก. 11" data-lang-en="TIS 11">มอก. 11</span>
+          <span class="spec-badge" data-lang-th="ทนน้ำมัน" data-lang-en="Oil-Resistant">ทนน้ำมัน</span>
         </div>
       </div>
     </div>
@@ -1025,7 +1025,7 @@ footer{
           <span class="spec-badge">CAT III 600V</span>
           <span class="spec-badge">True RMS</span>
           <span class="spec-badge">CE</span>
-          <span class="spec-badge">ประกัน 2 ปี</span>
+          <span class="spec-badge" data-lang-th="ประกัน 2 ปี" data-lang-en="2-Yr Warranty">ประกัน 2 ปี</span>
         </div>
       </div>
     </div>
@@ -1207,7 +1207,7 @@ footer{
         </a>
         <a href="https://line.me/ti/p/~uppakorndeede" class="btn-ghost" style="flex:1;min-width:140px">
           <i data-lucide="message-square" width="15" height="15"></i>
-          <span data-lang-th="Line: @ุuppakorndeede" data-lang-en="Line: @uppakorndeede">Line: @uppakorndeede</span>
+          <span data-lang-th="Line: @uppakorndeede" data-lang-en="Line: @uppakorndeede">Line: @uppakorndeede</span>
         </a>
       </div>
     </div>
